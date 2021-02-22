@@ -1,0 +1,25 @@
+{
+  "name": "express-typescript",
+  "version": "1.0.0",
+  "description": "Express typescript.",
+  "main": "src/index.js",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "node .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gentritabazi01/express-typescript.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gentritabazi01/express-typescript/issues"
+  },
+  "homepage": "https://github.com/gentritabazi01/express-typescript#readme"
+}
