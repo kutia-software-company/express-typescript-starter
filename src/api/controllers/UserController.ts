@@ -1,8 +1,8 @@
 import { Controller, Param, Body, Get, Post, Put, Delete } from 'routing-controllers';
 
-@Controller()
+@Controller('/users')
 export class UserController {
-    @Get('/users')
+    @Get()
     getAll() {
         return 'This action returns all users';
     }
@@ -12,7 +12,7 @@ export class UserController {
         return 'This action returns user #' + id;
     }
 
-    @Post('/users')
+    @Post()
     post(@Body() user: any) {
         return 'Saving user...';
     }
