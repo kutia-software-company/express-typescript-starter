@@ -1,6 +1,10 @@
 import express from "express";
-const app = express();
-const port = 8080; // default port to listen
+import { appConfig } from './config/app'
+
+const app = express()
+const port = appConfig.port || 3000
+
+console.log(appConfig)
 
 // define a route handler for the default home page
 app.get("/", (req, res) => {
