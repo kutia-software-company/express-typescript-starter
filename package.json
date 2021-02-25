@@ -9,15 +9,17 @@
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
+    "mysql": "npm:mysql2@^2.2.5",
     "reflect-metadata": "^0.1.13",
-    "routing-controllers": "^0.9.0"
+    "routing-controllers": "^0.9.0",
+    "typeorm": "^0.2.31"
   },
   "devDependencies": {
     "@types/express": "^4.17.11",
     "@types/node": "^14.14.31",
     "nodemon": "^2.0.7",
     "ts-node": "^9.1.1",
-    "typescript": "^4.1.5"
+    "typescript": "^4.2.2"
   },
   "scripts": {
     "dev": "nodemon",
