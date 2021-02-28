@@ -4,7 +4,7 @@ import { Application } from 'express'
 import { createExpressServer, useContainer as routingControllersUseContainer } from 'routing-controllers'
 import { Container } from 'typedi'
 import { useContainer as classValidatorUseContainer } from 'class-validator'
-import {sequelize} from './lib/sequelize';
+import {sequelize} from './lib/sequelize'
 
 routingControllersUseContainer(Container)
 classValidatorUseContainer(Container)
@@ -12,8 +12,9 @@ classValidatorUseContainer(Container)
 // Define port
 const port = appConfig.port || 3000;
 
+// Sequelize
 (async () => {
-    await sequelize.sync({force: false});
+    await sequelize.sync({force: false})
 
     // Create a new express server instance
     const expressApp: Application = createExpressServer({
@@ -34,4 +35,4 @@ const port = appConfig.port || 3000;
     expressApp.listen(port, () => {
         console.log(`Server started at http://localhost:${port}`)
     })
-})();
+})()

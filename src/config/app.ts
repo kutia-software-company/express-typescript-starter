@@ -1,4 +1,4 @@
-import { env } from '../lib/env';
+import { env } from '../lib/env'
 
 export const appConfig = {
     node: env('NODE_ENV') || 'development',
