@@ -12,4 +12,8 @@ export class UserRepository {
     findOneById(id: number) {
         return this.entity.findOne({where: { id: id }})
     }
+
+    async create(user: any) {
+        return await this.entity.create(user)
+    }
 }

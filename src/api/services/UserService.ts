@@ -16,4 +16,8 @@ export class UserService {
     findOneById(id: number) {
         return this.userRepository.findOneById(id)
     }
+
+    async create(user: any) {
+        return await this.userRepository.create(user)
+    }
 }
