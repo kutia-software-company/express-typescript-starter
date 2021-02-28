@@ -21,7 +21,7 @@ const port = appConfig.port || 3000;
         validation: true,
         cors: true,
         classTransformer: true,
-        defaultErrorHandler: false,
+        defaultErrorHandler: true,
         routePrefix: appConfig.routePrefix,
         controllers: [__dirname + '/api/controllers/*.ts']
     })
