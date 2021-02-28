@@ -6,7 +6,7 @@ export class UserRepository {
     private entity = User
 
     findAndCountAll() {
-        return this.entity.findAndCountAll()
+        return this.entity.findAndCountAll({raw: true})
     }
 
     findOneById(id: number) {
