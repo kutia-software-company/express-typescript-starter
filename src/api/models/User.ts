@@ -8,7 +8,10 @@ export class User extends Model<User> {
   id: number
 
   @Column
-  email!: number
+  email: string
+
+  @Column
+  password: string
 
   @CreatedAt
   @Column
