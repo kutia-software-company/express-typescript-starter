@@ -10,8 +10,8 @@ export class UserService {
         //
     }
 
-    getAll()  {
-        return this.userRepository.findAndCountAll()
+    async getAll()  {
+        return await this.userRepository.findAndCountAll()
     }
 
     findOneById(id: number) {

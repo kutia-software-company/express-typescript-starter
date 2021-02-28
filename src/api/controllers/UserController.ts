@@ -12,17 +12,17 @@ export class UserController {
     }
 
     @Get()
-    getAll() {
-        return this.userService.getAll()
+    public async getAll() {
+        return await this.userService.getAll()
     }
 
     @Get('/:id')
     public async getOne(@Param('id') id: number) {
-        return this.userService.findOneById(id)
+        return await this.userService.findOneById(id)
     }
 
     @Post()
-    create(@Body() user: any) {
-        return this.userService.create(user)
+    public async create(@Body() user: any) {
+        return await this.userService.create(user)
     }
 }

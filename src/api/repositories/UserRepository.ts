@@ -5,15 +5,15 @@ import { User } from '../models/User'
 export class UserRepository {
     private entity = User
 
-    findAndCountAll() {
-        return this.entity.findAndCountAll({raw: true})
+    public async findAndCountAll() {
+        return await this.entity.findAndCountAll({raw: true})
     }
 
-    findOneById(id: number) {
-        return this.entity.findOne({where: { id: id }})
+    public async findOneById(id: number) {
+        return await this.entity.findOne({raw: true, where: { id: id }})
     }
 
-    async create(user: any) {
+    public async create(user: any) {
         return await this.entity.create(user)
     }
 }
