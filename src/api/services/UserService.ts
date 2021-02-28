@@ -10,19 +10,19 @@ export class UserService {
         //
     }
 
-    async getAll()  {
+    public async getAll()  {
         return await this.userRepository.findAndCountAll()
     }
 
-    findOneById(id: number) {
+    public async findOneById(id: number) {
       return this.getRequestedUserOrFail(id)
     }
 
-    async create(user: any) {
+    public async create(user: any) {
         return await this.userRepository.create(user)
     }
 
-    async getRequestedUserOrFail(id: number) {
+    private async getRequestedUserOrFail(id: number) {
         let user = await this.userRepository.findOneById(id)
 
         if (!user) {
