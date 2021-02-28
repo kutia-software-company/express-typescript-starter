@@ -1,27 +1,23 @@
 import 'reflect-metadata'
 import { appConfig } from './config/app'
-import { dbConfig } from './config/db'
 import { Application } from 'express'
-import { createExpressServer } from 'routing-controllers'
-import { createConnection } from 'typeorm'
+import { createExpressServer, useContainer as routingControllersUseContainer } from 'routing-controllers'
+import { Container } from 'typedi'
+import { useContainer as classValidatorUseContainer } from 'class-validator'
+import {sequelize} from './lib/sequelize';
+
+routingControllersUseContainer(Container)
+classValidatorUseContainer(Container)
 
 // Define port
-const port = appConfig.port || 3000
+const port = appConfig.port || 3000;
 
-// Create typeorm connection
-createConnection({
-    type: 'mysql',
-    host: dbConfig.typeormHost,
-    port: Number(dbConfig.typeormPort),
-    username: dbConfig.typeormUsername,
-    password: dbConfig.typeormPassword,
-    database: dbConfig.typeormDatabase,
-    entities: ['src/api/models/**/*.ts'],
-    synchronize: Boolean(dbConfig.typeormSynchronize),
-    logging: Boolean(dbConfig.typeormLogging)
-}).then(async connection => {
+(async () => {
+    await sequelize.sync({force: false});
+
     // Create a new express server instance
     const expressApp: Application = createExpressServer({
+        validation: true,
         cors: true,
         classTransformer: true,
         defaultErrorHandler: false,
@@ -38,4 +34,4 @@ createConnection({
     expressApp.listen(port, () => {
         console.log(`Server started at http://localhost:${port}`)
     })
-}).catch(error => console.log('Error: ', error));
+})();

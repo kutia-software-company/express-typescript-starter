@@ -1,29 +1,23 @@
-import { Controller, Param, Body, Get, Post, Put, Delete } from 'routing-controllers';
+import { Controller, Param, Body, Get, Post, Put, Delete } from 'routing-controllers'
+import { UserService } from '../services/UserService'
+import { Service } from 'typedi'
 
+@Service()
 @Controller('/users')
 export class UserController {
+    constructor(
+        private userService: UserService
+        ) {
+        //
+    }
+
     @Get()
     getAll() {
-        return 'This action returns all users';
+        return this.userService.getAll()
     }
 
-    @Get('/users/:id')
+    @Get('/:id')
     getOne(@Param('id') id: number) {
-        return 'This action returns user #' + id;
-    }
-
-    @Post()
-    post(@Body() user: any) {
-        return 'Saving user...';
-    }
-
-    @Put('/users/:id')
-    put(@Param('id') id: number, @Body() user: any) {
-        return 'Updating a user...';
-    }
-
-    @Delete('/users/:id')
-    remove(@Param('id') id: number) {
-        return 'Removing user...';
+        return this.userService.findOneById(id)
     }
 }
