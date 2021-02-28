@@ -1,9 +1,9 @@
-import { Controller, Param, Body, Get, Post, Put, Delete } from 'routing-controllers'
+import { Param, Get, JsonController } from 'routing-controllers'
 import { UserService } from '../services/UserService'
 import { Service } from 'typedi'
 
 @Service()
-@Controller('/users')
+@JsonController('/users')
 export class UserController {
     constructor(
         private userService: UserService
