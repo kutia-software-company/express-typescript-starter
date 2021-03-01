@@ -6,20 +6,24 @@ import { UserNotFoundException } from '../exceptions/UserNotFoundException'
 export class UserService {
     constructor(
         private userRepository: UserRepository
-        ) {
+    ) {
         //
     }
 
-    public async getAll()  {
+    public async getAll() {
         return await this.userRepository.findAndCountAll()
     }
 
     public async findOneById(id: number) {
-      return this.getRequestedUserOrFail(id)
+        return await this.getRequestedUserOrFail(id)
     }
 
     public async create(user: any) {
         return await this.userRepository.create(user)
+    }
+
+    public async updateOneById(id: number, data: any) {
+        return await this.userRepository.update(id, data)
     }
 
     private async getRequestedUserOrFail(id: number) {
