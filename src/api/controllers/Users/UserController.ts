@@ -1,4 +1,4 @@
-import { Param, Get, JsonController, Post, Body, Put, Delete } from 'routing-controllers'
+import { Param, Get, JsonController, Post, Body, Put, Delete, HttpCode } from 'routing-controllers'
 import { UserService } from '../../services/Users/UserService'
 import { Service } from 'typedi'
 import { UserCreate } from '../../validators/Users/UserCreate'
@@ -23,6 +23,7 @@ export class UserController {
     }
 
     @Post()
+    @HttpCode(201)
     public async create(@Body({ validate: true }) user: UserCreate) {
         return await this.userService.create(user)
     }
@@ -33,6 +34,7 @@ export class UserController {
     }
 
     @Delete('/:id')
+    @HttpCode(204)
     public async delete(@Param('id') id: number) {
         return await this.userService.deleteOneById(id)
     }
