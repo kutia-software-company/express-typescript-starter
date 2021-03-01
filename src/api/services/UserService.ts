@@ -26,6 +26,10 @@ export class UserService {
         return await this.userRepository.update(id, data)
     }
 
+    public async deleteOneById(id: number) {
+        return await this.userRepository.delete(id)
+    }
+
     private async getRequestedUserOrFail(id: number) {
         let user = await this.userRepository.findOneById(id)
 

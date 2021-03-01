@@ -26,4 +26,8 @@ export class UserRepository {
         
         return updatedUser
     }
+
+    public async delete(id: number) {
+        return await this.entity.destroy({ where: { id: id } })
+    }
 }
