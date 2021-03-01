@@ -3,13 +3,12 @@ import { User } from '../api/models/User'
 import { dbConfig } from '../config/db'
 
 export const sequelize = new Sequelize({
-  dialect: 'mysql',
-  database: dbConfig.typeormDatabase,
-  storage: ':memory:',
-  username: dbConfig.typeormUsername,
-  password: dbConfig.typeormPassword,
-  host: dbConfig.typeormHost,
-  port: Number(dbConfig.typeormPort),
-  models: [User],
-  query: { raw: true }
+    dialect: 'mysql',
+    host: dbConfig.dbHost,
+    port: Number(dbConfig.dbPort),
+    database: dbConfig.dbDatabase,
+    username: dbConfig.dbUsername,
+    password: dbConfig.dbPassword,
+    models: [User],
+    query: { raw: true }
 })
