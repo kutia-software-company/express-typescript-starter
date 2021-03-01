@@ -1,6 +1,7 @@
 import { Param, Get, JsonController, Post, Body, Put, Delete } from 'routing-controllers'
 import { UserService } from '../../services/Users/UserService'
 import { Service } from 'typedi'
+import { UserCreate } from '../../validators/Users/UserCreate'
 
 @Service()
 @JsonController('/users')
@@ -22,7 +23,7 @@ export class UserController {
     }
 
     @Post()
-    public async create(@Body() user: any) {
+    public async create(@Body({ validate: true }) user: UserCreate) {
         return await this.userService.create(user)
     }
 

@@ -3,12 +3,10 @@ import { appConfig } from './config/app'
 import { Application } from 'express'
 import { createExpressServer, useContainer as routingControllersUseContainer } from 'routing-controllers'
 import { Container } from 'typedi'
-import { useContainer as classValidatorUseContainer } from 'class-validator'
 import { sequelize } from './lib/sequelize'
 import { eventDispatcher } from './lib/eventDispatcher'
 
 routingControllersUseContainer(Container)
-classValidatorUseContainer(Container)
 
 // Define port
 const port = appConfig.port || 3000;
