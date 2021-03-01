@@ -1,5 +1,12 @@
 import { env } from '../lib/env'
 
+function getAppPath() {
+    let currentDir = __dirname
+    currentDir = currentDir.replace('/config', '')
+
+    return currentDir
+}
+
 export const appConfig = {
     node: env('NODE_ENV') || 'development',
     isProduction: env('NODE_ENV') === 'production',
@@ -9,7 +16,10 @@ export const appConfig = {
     port: env('APP_PORT'),
     routePrefix: env('APP_ROUTE_PREFIX'),
 
+    entities: env('ENTITIES'),
     controllers: env('CONTROLLERS'),
     middlewares: env('MIDDLEWARES'),
-    interceptors: env('INTERCEPTORS')
+    interceptors: env('INTERCEPTORS'),
+
+    appPath: getAppPath()
 }

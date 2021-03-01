@@ -1,6 +1,9 @@
 import { Sequelize } from 'sequelize-typescript'
 import { User } from '../api/models/User'
 import { dbConfig } from '../config/db'
+import { appConfig } from '../config/app'
+
+console.log(appConfig.appPath + '/api/models')
 
 export const sequelize = new Sequelize({
     dialect: 'mysql',
@@ -9,6 +12,6 @@ export const sequelize = new Sequelize({
     database: dbConfig.dbDatabase,
     username: dbConfig.dbUsername,
     password: dbConfig.dbPassword,
-    models: [User],
+    models: [appConfig.appPath + appConfig.entities],
     query: { raw: true }
 })

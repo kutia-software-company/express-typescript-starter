@@ -6,6 +6,5 @@ export const dbConfig = {
     dbPort: env('DB_PORT'),
     dbDatabase: env('DB_DATABASE'),
     dbUsername: env('DB_USERNAME'),
-    dbPassword: env('DB_PASSWORD'),
-    dbEntities: env('DB_ENTITIES')
+    dbPassword: env('DB_PASSWORD')
 }
