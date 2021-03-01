@@ -5,6 +5,7 @@ import { createExpressServer, useContainer as routingControllersUseContainer } f
 import { Container } from 'typedi'
 import { useContainer as classValidatorUseContainer } from 'class-validator'
 import { sequelize } from './lib/sequelize'
+import { eventDispatcher } from './lib/eventDispatcher'
 
 routingControllersUseContainer(Container)
 classValidatorUseContainer(Container)
@@ -15,6 +16,9 @@ const port = appConfig.port || 3000;
 // Sequelize
 (async () => {
     await sequelize
+
+    // Load subscribers
+    eventDispatcher()
 
     // Create a new express server instance
     const expressApp: Application = createExpressServer({

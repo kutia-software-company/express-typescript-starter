@@ -2,8 +2,6 @@ import { Sequelize } from 'sequelize-typescript'
 import { dbConfig } from '../config/db'
 import { appConfig } from '../config/app'
 
-console.log(appConfig.appPath + '/api/models')
-
 export const sequelize = new Sequelize({
     dialect: 'mysql',
     host: dbConfig.dbHost,

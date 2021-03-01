@@ -1,11 +1,13 @@
 import { Service } from 'typedi'
 import { UserRepository } from '../../repositories/Users/UserRepository'
 import { UserNotFoundException } from '../../exceptions/Users/UserNotFoundException'
+import { EventDispatcher, EventDispatcherInterface } from '../../../decorators/EventDispatcher'
 
 @Service()
 export class UserService {
     constructor(
-        private userRepository: UserRepository
+        private userRepository: UserRepository,
+        @EventDispatcher() private eventDispatcher: EventDispatcherInterface
     ) {
         //
     }
@@ -19,7 +21,11 @@ export class UserService {
     }
 
     public async create(user: any) {
-        return await this.userRepository.create(user)
+        let userCreated = await this.userRepository.create(user)
+
+        this.eventDispatcher.dispatch('onUserCreate', userCreated)
+
+        return userCreated
     }
 
     public async updateOneById(id: number, data: any) {
