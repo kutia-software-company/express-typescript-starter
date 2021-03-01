@@ -77,7 +77,7 @@ The route prefix is `/api` by default, but you can change this in the .env file.
 | **src/**                          | Source files |
 | **src/config**                    | The config directory, as the name implies, contains all of your application's configuration files. |
 | **src/api/controllers/**          | REST API Controllers |
-| **src/api/controllers/responses** | Response classes or interfaces to type json response bodies  |
+| **src/api/responses**             | Response classes or interfaces to type json response bodies  |
 | **src/api/errors/**               | Custom HttpErrors like 404 NotFound |
 | **src/api/interceptors/**         | Interceptors are used to change or replace the data returned to the client. |
 | **src/api/middlewares/**          | Express Middlewares |
