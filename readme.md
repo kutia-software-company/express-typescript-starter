@@ -1,6 +1,7 @@
 # Introduction
 
 Project is a faster way to building a Node.js RESTful API in TypeScript.
+
 Start use now and just focus on your business and not spending hours in project configuration.
 
 ### Features
@@ -11,7 +12,7 @@ Start use now and just focus on your business and not spending hours in project 
 - **Clear Structure** with different layers such as controllers, services, repositories, models, middlewares...
 - **Easy Exception Handling** thanks to [routing-controllers](https://github.com/pleerock/routing-controllers).
 - **Smart Validation** thanks to [class-validator](https://github.com/pleerock/class-validator) with some nice annotations.
-- **Custom Validators** to validate your request even better and stricter. [custom-validation-classes](https://github.com/pleerock/class-validator#custom-validation-classes).
+- **Custom Validators** to validate your request even better and stricter [custom-validation-classes](https://github.com/pleerock/class-validator#custom-validation-classes).
 - **Basic Security Features** thanks to [Helmet](https://helmetjs.github.io/).
 - **Easy event dispatching** thanks to [event-dispatch](https://github.com/pleerock/event-dispatch).
 - **Fast Database Building** with simple migration from [Sequelize](https://github.com/sequelize/sequelize).
@@ -19,7 +20,7 @@ Start use now and just focus on your business and not spending hours in project 
 
 ### Installation
 
-###### Step 1: Set up the Development Environment
+### Step 1: Set up the Development Environment
 
 You need to set up your development environment before you can do anything.
 
@@ -38,7 +39,7 @@ Clone or download this project. Configure your package.json for your new project
 
 Then copy the `.env.example` file and rename it to `.env`. In this file you have to add your database connection information.
 
-Create a new database with the name you have in your `.env`-file.
+Create a new database with the name you have in your `.env` file.
 
 Then setup your application environment.
 
@@ -74,6 +75,7 @@ The route prefix is `/api` by default, but you can change this in the .env file.
 | --------------------------------- | ----------- |
 | **dist/**                         | Compiled source files will be placed here |
 | **src/**                          | Source files |
+| **src/config**                    | The config directory, as the name implies, contains all of your application's configuration files. |
 | **src/api/controllers/**          | REST API Controllers |
 | **src/api/controllers/requests**  | Request classes with validation rules if the body is not equal with a model |
 | **src/api/controllers/responses** | Response classes or interfaces to type json response bodies  |
@@ -85,18 +87,13 @@ The route prefix is `/api` by default, but you can change this in the .env file.
 | **src/api/services/**             | Service layer |
 | **src/api/subscribers/**          | Event subscribers |
 | **src/api/validators/**           | Custom validators, which can be used in the request classes |
-| **src/api/** schema.gql           | Generated GraphQL schema |
 | **src/auth/**                     | Authentication checkers and services |
 | **src/database/factories**        | Factory the generate fake entities |
 | **src/database/migrations**       | Database migration scripts |
 | **src/database/seeds**            | Seeds to create some data in the database |
 | **src/decorators/**               | Custom decorators like @Logger & @EventDispatch |
-| **src/loaders/**                  | Loader is a place where you can configure your app |
 | **src/public/**                   | Static assets (fonts, css, js, img). |
-| **src/types/** *.d.ts             | Custom type definitions and files that aren't on DefinitelyTyped |
-| .env.example                      | Environment configurations |
-| .env.test                         | Test environment configurations |
-
+| **.env.example**                  | Environment configurations |
 
 ### License
 
