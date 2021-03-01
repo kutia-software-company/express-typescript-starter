@@ -10,5 +10,6 @@ export const sequelize = new Sequelize({
   password: dbConfig.typeormPassword,
   host: dbConfig.typeormHost,
   port: Number(dbConfig.typeormPort),
-  models: [User]
+  models: [User],
+  query: { raw: true }
 })
