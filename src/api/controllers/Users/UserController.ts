@@ -1,5 +1,5 @@
 import { Param, Get, JsonController, Post, Body, Put, Delete } from 'routing-controllers'
-import { UserService } from '../services/UserService'
+import { UserService } from '../../services/Users/UserService'
 import { Service } from 'typedi'
 
 @Service()

@@ -1,5 +1,5 @@
 import { Service } from 'typedi'
-import { User } from '../models/User'
+import { User } from '../../models/Users/User'
 
 @Service()
 export class UserRepository {

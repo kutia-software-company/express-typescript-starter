@@ -1,6 +1,6 @@
 import { Service } from 'typedi'
-import { UserRepository } from '../repositories/UserRepository'
-import { UserNotFoundException } from '../exceptions/UserNotFoundException'
+import { UserRepository } from '../../repositories/Users/UserRepository'
+import { UserNotFoundException } from '../../exceptions/Users/UserNotFoundException'
 
 @Service()
 export class UserService {
