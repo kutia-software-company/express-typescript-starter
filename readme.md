@@ -12,7 +12,7 @@ Start use now and just focus on your business and not spending hours in project 
 - **Clear Structure** with different layers such as controllers, services, repositories, models, middlewares...
 - **Easy Exception Handling** thanks to [routing-controllers](https://github.com/pleerock/routing-controllers).
 - **Smart Validation** thanks to [class-validator](https://github.com/pleerock/class-validator) with some nice annotations.
-- **Custom Validators** to validate your request even better and stricter [custom-validation-classes](https://github.com/pleerock/class-validator#custom-validation-classes).
+- **Custom Validators** to validate your request even better and stricter ([custom-validation-classes](https://github.com/pleerock/class-validator#custom-validation-classes)).
 - **Basic Security Features** thanks to [Helmet](https://helmetjs.github.io/).
 - **Easy event dispatching** thanks to [event-dispatch](https://github.com/pleerock/event-dispatch).
 - **Fast Database Building** with simple migration from [Sequelize](https://github.com/sequelize/sequelize).
@@ -77,7 +77,6 @@ The route prefix is `/api` by default, but you can change this in the .env file.
 | **src/**                          | Source files |
 | **src/config**                    | The config directory, as the name implies, contains all of your application's configuration files. |
 | **src/api/controllers/**          | REST API Controllers |
-| **src/api/controllers/requests**  | Request classes with validation rules if the body is not equal with a model |
 | **src/api/controllers/responses** | Response classes or interfaces to type json response bodies  |
 | **src/api/errors/**               | Custom HttpErrors like 404 NotFound |
 | **src/api/interceptors/**         | Interceptors are used to change or replace the data returned to the client. |
@@ -86,7 +85,7 @@ The route prefix is `/api` by default, but you can change this in the .env file.
 | **src/api/repositories/**         | Repository / DB layer |
 | **src/api/services/**             | Service layer |
 | **src/api/subscribers/**          | Event subscribers |
-| **src/api/validators/**           | Custom validators, which can be used in the request classes |
+| **src/api/validators/**           | Request classes with validation rules if the body is not equal with a model |
 | **src/auth/**                     | Authentication checkers and services |
 | **src/database/factories**        | Factory the generate fake entities |
 | **src/database/migrations**       | Database migration scripts |
