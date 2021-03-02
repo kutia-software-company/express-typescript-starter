@@ -90,7 +90,7 @@ The route prefix is `/api` by default, but you can change this in the .env file.
 | **src/database/factories**        | Factory the generate fake entities |
 | **src/database/migrations**       | Database migration scripts |
 | **src/database/seeds**            | Seeds to create some data in the database |
-| **src/decorators/**               | Custom decorators like @Logger & @EventDispatch |
+| **src/decorators/**               | Custom decorators like @EventDispatch |
 | **src/public/**                   | Static assets (fonts, css, js, img). |
 | **.env.example**                  | Environment configurations |
 
