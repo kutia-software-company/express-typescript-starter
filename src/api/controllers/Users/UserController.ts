@@ -1,7 +1,7 @@
 import { Param, Get, JsonController, Post, Body, Put, Delete, HttpCode, UseBefore } from 'routing-controllers'
 import { UserService } from '../../services/Users/UserService'
 import { Service } from 'typedi'
-import { UserCreate } from '../../validators/Users/UserCreate'
+import { UserCreateRequest } from '../../validators/Users/UserCreateRequest'
 import { AuthCheck } from '../../middlewares/AuthCheck'
 
 @Service()
@@ -26,7 +26,7 @@ export class UserController {
 
     @Post()
     @HttpCode(201)
-    public async create(@Body({ validate: true }) user: UserCreate) {
+    public async create(@Body({ validate: true }) user: UserCreateRequest) {
         return await this.userService.create(user)
     }
 

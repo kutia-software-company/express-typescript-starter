@@ -1,6 +1,6 @@
 import { IsNotEmpty, IsEmail, IsString, MinLength, MaxLength } from 'class-validator'
 
-export class UserCreate {
+export class UserCreateRequest {
     @IsNotEmpty()
     @IsString()
     @IsEmail()
