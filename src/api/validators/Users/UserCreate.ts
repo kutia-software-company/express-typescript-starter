@@ -4,11 +4,11 @@ export class UserCreate {
     @IsNotEmpty()
     @IsString()
     @IsEmail()
-    public email: string
+    email: string
 
     @IsNotEmpty()
     @IsString()
     @MinLength(6)
     @MaxLength(20)
-    public password: string
+    password: string
 }
