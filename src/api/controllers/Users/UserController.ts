@@ -1,10 +1,12 @@
-import { Param, Get, JsonController, Post, Body, Put, Delete, HttpCode } from 'routing-controllers'
+import { Param, Get, JsonController, Post, Body, Put, Delete, HttpCode, UseBefore } from 'routing-controllers'
 import { UserService } from '../../services/Users/UserService'
 import { Service } from 'typedi'
 import { UserCreate } from '../../validators/Users/UserCreate'
+import { AuthCheck } from '../../middlewares/AuthCheck'
 
 @Service()
 @JsonController('/users')
+@UseBefore(AuthCheck)
 export class UserController {
     constructor(
         private userService: UserService

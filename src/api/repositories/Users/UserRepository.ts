@@ -30,4 +30,8 @@ export class UserRepository {
     public async delete(id: number) {
         return await this.entity.destroy({ where: { id: id } })
     }
+
+    public async findOne(options: object) {
+        return await this.entity.findOne(options)
+    }
 }

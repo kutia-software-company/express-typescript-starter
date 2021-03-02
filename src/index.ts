@@ -25,7 +25,8 @@ const port = appConfig.port || 3000;
         classTransformer: true,
         defaultErrorHandler: true,
         routePrefix: appConfig.routePrefix,
-        controllers: [__dirname + appConfig.controllers]
+        controllers: [__dirname + appConfig.controllers],
+        middlewares: [__dirname + appConfig.middlewares]
     })
 
     // Define a route handler for the default home page

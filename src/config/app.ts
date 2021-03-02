@@ -15,6 +15,7 @@ export const appConfig = {
     name: env('APP_NAME'),
     port: env('APP_PORT'),
     routePrefix: env('APP_ROUTE_PREFIX'),
+    jwtSecret: env('JWT_SECRET'),
 
     entities: env('ENTITIES'),
     controllers: env('CONTROLLERS'),

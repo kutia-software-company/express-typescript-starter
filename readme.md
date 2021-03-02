@@ -17,6 +17,7 @@ Start use now and just focus on your business and not spending hours in project 
 - **Easy event dispatching** thanks to [event-dispatch](https://github.com/pleerock/event-dispatch).
 - **Fast Database Building** with simple migration from [Sequelize](https://github.com/sequelize/sequelize).
 - **Easy Data Seeding** with our own factories.
+- **Auth System** thanks to [jsonwebtoken](https://github.com/auth0/node-jsonwebtoken).
 
 ### Installation
 
@@ -86,7 +87,6 @@ The route prefix is `/api` by default, but you can change this in the .env file.
 | **src/api/services/**             | Service layer |
 | **src/api/subscribers/**          | Event subscribers |
 | **src/api/validators/**           | Request classes with validation rules if the body is not equal with a model |
-| **src/auth/**                     | Authentication checkers and services |
 | **src/database/factories**        | Factory the generate fake entities |
 | **src/database/migrations**       | Database migration scripts |
 | **src/database/seeds**            | Seeds to create some data in the database |
