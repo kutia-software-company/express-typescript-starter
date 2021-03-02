@@ -37,7 +37,7 @@ export class UserService {
     }
 
     private async getRequestedUserOrFail(id: number) {
-        let user = await this.userRepository.findOneById(id)
+        let user = await this.userRepository.findOne({ where: { id: id } })
 
         if (!user) {
             throw new UserNotFoundException

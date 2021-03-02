@@ -9,10 +9,6 @@ export class UserRepository {
         return await this.entity.findAndCountAll({raw: true})
     }
 
-    public async findOneById(id: number) {
-        return await this.entity.findOne({raw: true, where: { id: id }})
-    }
-
     public async findByPk(id: number) {
         return await this.entity.findByPk(id, { raw: true })
     }
