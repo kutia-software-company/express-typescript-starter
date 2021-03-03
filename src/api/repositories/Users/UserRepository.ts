@@ -6,7 +6,7 @@ export class UserRepository {
     private entity = User
 
     public async findAndCountAll() {
-        return await this.entity.findAndCountAll({raw: true})
+        return await this.entity.findAndCountAll()
     }
 
     public async create(user: any) {
