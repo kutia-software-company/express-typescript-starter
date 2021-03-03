@@ -12,8 +12,8 @@ export class UserService {
         //
     }
 
-    public async getAll() {
-        return await this.userRepository.findAndCountAll()
+    public async getAll(resourceOptions?: object) {
+        return await this.userRepository.findAndCountAll(resourceOptions)
     }
 
     public async findOneById(id: number) {

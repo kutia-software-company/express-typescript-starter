@@ -6,8 +6,8 @@ import { User } from '../../models/Users/User'
 export class UserRepository extends Repository {
     private entity = User
 
-    public async findAndCountAll() {
-        return await this.entity.findAndCountAll()
+    public async findAndCountAll(resourceOptions?: object) {
+        return await this.entity.findAndCountAll(this.applyResourceOptions(resourceOptions))
     }
 
     public async create(user: any) {
