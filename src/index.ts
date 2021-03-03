@@ -36,6 +36,6 @@ const port = appConfig.port || 3000;
 
     // Start the Express server
     expressApp.listen(port, () => {
-        console.log(`Server started at http://localhost:${port}`)
+        console.log(`🚀 Server started at http://localhost:${port}`)
     })
 })()
