@@ -9,10 +9,6 @@ export class UserRepository {
         return await this.entity.findAndCountAll({raw: true})
     }
 
-    public async findByPk(id: number) {
-        return await this.entity.findByPk(id, { raw: true })
-    }
-
     public async create(user: any) {
         return await this.entity.create(user)
     }
