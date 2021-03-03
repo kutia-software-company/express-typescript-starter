@@ -62,7 +62,7 @@ npm run dev
 > The server address will be displayed to you as `http://localhost:3000`.
 
 
-## ❯ API Routes
+### API Routes
 
 The route prefix is `/api` by default, but you can change this in the .env file.
 
@@ -70,7 +70,7 @@ The route prefix is `/api` by default, but you can change this in the .env file.
 | -------------- | ----------- |
 | **/api/users** | Example entity endpoint |
 
-## ❯ Project Structure
+### Project Structure
 
 | Name                              | Description |
 | --------------------------------- | ----------- |
