@@ -5,7 +5,8 @@ import { Application } from 'express'
 import { createExpressServer, useContainer as routingControllersUseContainer } from 'routing-controllers'
 import { Container } from 'typedi'
 import { createConnection, useContainer as ormUseContainer } from 'typeorm'
-import { Container as containerTypeorm } from 'typeorm-typedi-extensions';
+import { Container as containerTypeorm } from 'typeorm-typedi-extensions'
+import { eventDispatcher } from './utlis/eventDispatcher'
 
 routingControllersUseContainer(Container)
 ormUseContainer(containerTypeorm);
@@ -24,6 +25,9 @@ createConnection({
     entities: [appConfig.appPath + appConfig.entities],
     logging: true
 }).then(async connection => {
+    // Load subscribers
+    eventDispatcher()
+
     // Create a new express server instance
     const expressApp: Application = createExpressServer({
         validation: true,
