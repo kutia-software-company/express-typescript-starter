@@ -13,8 +13,8 @@ export class UserService {
         //
     }
 
-    public async getAll() {
-        return await this.userRepository.findAndCountRaw()
+    public async getAll(resourceOptions?: object) {
+        return await this.userRepository.findAndCountRaw(resourceOptions)
     }
 
     public async findOneById(id: number) {
