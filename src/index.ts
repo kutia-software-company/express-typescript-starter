@@ -3,8 +3,8 @@ import { appConfig } from './config/app'
 import { Application } from 'express'
 import { createExpressServer, useContainer as routingControllersUseContainer } from 'routing-controllers'
 import { Container } from 'typedi'
-import { sequelize } from './lib/sequelize'
-import { eventDispatcher } from './lib/eventDispatcher'
+import { sequelize } from './utlis/sequelize'
+import { eventDispatcher } from './utlis/eventDispatcher'
 
 routingControllersUseContainer(Container)
 

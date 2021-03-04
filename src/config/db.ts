@@ -1,4 +1,4 @@
-import { env } from '../lib/env';
+import { env } from '../utlis/env';
 
 export const dbConfig = {
     dbConnection: env('DB_CONNECTION'),
