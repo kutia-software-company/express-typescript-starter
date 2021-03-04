@@ -1,23 +1,19 @@
-import { Column, CreatedAt, Model, PrimaryKey, Table, UpdatedAt, AutoIncrement } from 'sequelize-typescript'
+import { BaseEntity, Column, Entity, PrimaryGeneratedColumn } from 'typeorm'
 
-@Table({ tableName: 'users' })
-export class User extends Model<User> {
-    @PrimaryKey
-    @AutoIncrement
-    @Column
-    id: number
+@Entity({ name: 'users' })
+export class User extends BaseEntity {
+    @PrimaryGeneratedColumn('increment')
+    id: number;
 
-    @Column
+    @Column({})
+    first_name: string
+
+    @Column({})
+    last_name: string
+    
+    @Column({})
     email: string
 
-    @Column
+    @Column({ select: false })
     password: string
-
-    @CreatedAt
-    @Column
-    created_at!: Date
-
-    @UpdatedAt
-    @Column
-    updated_at!: Date
 }
