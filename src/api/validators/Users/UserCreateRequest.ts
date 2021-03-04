@@ -3,6 +3,18 @@ import { IsNotEmpty, IsEmail, IsString, MinLength, MaxLength } from 'class-valid
 export class UserCreateRequest {
     @IsNotEmpty()
     @IsString()
+    @MinLength(2)
+    @MaxLength(20)
+    first_name: string
+
+    @IsNotEmpty()
+    @IsString()
+    @MinLength(2)
+    @MaxLength(20)
+    last_name: string
+
+    @IsNotEmpty()
+    @IsString()
     @IsEmail()
     email: string
 
