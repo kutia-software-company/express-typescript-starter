@@ -2,6 +2,7 @@ import { Service } from 'typedi'
 import { UserRepository } from '../../repositories/Users/UserRepository'
 import { UserNotFoundException } from '../../exceptions/Users/UserNotFoundException'
 import { EventDispatcher, EventDispatcherInterface } from '../../../decorators/EventDispatcher'
+import bcrypt from 'bcrypt'
 
 @Service()
 export class UserService {
@@ -21,6 +22,8 @@ export class UserService {
     }
 
     public async create(user: any) {
+        user.password = await bcrypt.hash(user.password, 10)
+
         let userCreated = await this.userRepository.create(user)
 
         this.eventDispatcher.dispatch('onUserCreate', userCreated)
