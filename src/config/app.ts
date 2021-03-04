@@ -20,7 +20,6 @@ export const appConfig = {
     entities: env('ENTITIES'),
     controllers: env('CONTROLLERS'),
     middlewares: env('MIDDLEWARES'),
-    interceptors: env('INTERCEPTORS'),
     subscribers: env('SUBSCRIBERS'),
 
     appPath: getAppPath(),
