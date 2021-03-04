@@ -1,8 +1,9 @@
-import { Param, Get, JsonController, Post, Body, Put, Delete, HttpCode, UseBefore } from 'routing-controllers'
+import { Param, Get, JsonController, Post, Body, Put, Delete, HttpCode, UseBefore, QueryParams } from 'routing-controllers'
 import { UserService } from '../../services/Users/UserService'
 import { Service } from 'typedi'
 import { UserCreateRequest } from '../../validators/Users/UserCreateRequest'
 import { AuthCheck } from '../../middlewares/AuthCheck'
+import { ResourceOptions } from '../../transformers/Application/ResourceOptions'
 
 @Service()
 @JsonController('/users')
@@ -15,8 +16,8 @@ export class UserController {
     }
 
     @Get()
-    public async getAll() {
-        return await this.userService.getAll()
+    public async getAll(@QueryParams() resourceOptions: ResourceOptions) {
+        return await this.userService.getAll(resourceOptions.getAll())
     }
 
     @Get('/:id')

@@ -21,9 +21,9 @@
     "mysql2": "^2.2.5",
     "reflect-metadata": "^0.1.13",
     "routing-controllers": "^0.9.0",
-    "sequelize": "^6.5.0",
-    "sequelize-typescript": "^2.1.0",
-    "typedi": "^0.10.0"
+    "typedi": "^0.10.0",
+    "typeorm": "^0.2.31",
+    "typeorm-typedi-extensions": "^0.4.1"
   },
   "devDependencies": {
     "@types/bcrypt": "^3.0.0",
@@ -37,7 +37,9 @@
   },
   "scripts": {
     "dev": "nodemon",
-    "start": "ts-node src/index.ts"
+    "start": "ts-node src/index.ts",
+    "typeorm": "./node_modules/.bin/ts-node ./node_modules/.bin/typeorm",
+    "typeorm:migration:create": "npm run typeorm -- migration:create -n"
   },
   "repository": {
     "type": "git",

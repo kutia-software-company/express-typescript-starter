@@ -2,6 +2,7 @@ import { Service } from 'typedi'
 import { UserRepository } from '../../repositories/Users/UserRepository'
 import { UserNotFoundException } from '../../exceptions/Users/UserNotFoundException'
 import { appConfig } from '../../../config/app'
+import { InjectRepository } from 'typeorm-typedi-extensions'
 import * as jwt from 'jsonwebtoken'
 
 @Service()
@@ -9,7 +10,7 @@ export class LoginService {
     private jstExpiresIn = '24h'
 
     constructor(
-        private userRepository: UserRepository
+        @InjectRepository() private userRepository: UserRepository
     ) {
         //
     }

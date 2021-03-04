@@ -2,36 +2,38 @@ import { Service } from 'typedi'
 import { UserRepository } from '../../repositories/Users/UserRepository'
 import { UserNotFoundException } from '../../exceptions/Users/UserNotFoundException'
 import { EventDispatcher, EventDispatcherInterface } from '../../../decorators/EventDispatcher'
+import { InjectRepository } from 'typeorm-typedi-extensions'
 import bcrypt from 'bcrypt'
 
 @Service()
 export class UserService {
     constructor(
-        private userRepository: UserRepository,
-        @EventDispatcher() private eventDispatcher: EventDispatcherInterface
-    ) {
+        @InjectRepository() private userRepository: UserRepository,
+        @EventDispatcher() private eventDispatcher: EventDispatcherInterface) {
         //
     }
 
-    public async getAll() {
-        return await this.userRepository.findAndCountAll()
+    public async getAll(resourceOptions?: object) {
+        return await this.userRepository.findAndCountRaw(resourceOptions)
     }
 
     public async findOneById(id: number) {
         return await this.getRequestedUserOrFail(id)
     }
 
-    public async create(user: any) {
-        user.password = await bcrypt.hash(user.password, 10)
+    public async create(data: any) {
+        data.password = await bcrypt.hash(data.password, 10)
 
-        let userCreated = await this.userRepository.create(user)
+        let user = await this.userRepository.save(data);
 
-        this.eventDispatcher.dispatch('onUserCreate', userCreated)
+        this.eventDispatcher.dispatch('onUserCreate', user)
 
-        return userCreated
+        return user
     }
 
     public async updateOneById(id: number, data: any) {
+        await this.getRequestedUserOrFail(id)
+
         return await this.userRepository.update(id, data)
     }
 
@@ -40,7 +42,7 @@ export class UserService {
     }
 
     private async getRequestedUserOrFail(id: number) {
-        let user = await this.userRepository.findOne({ where: { id: id } })
+        let user = await this.userRepository.findOneByIdRaw(id)
 
         if (!user) {
             throw new UserNotFoundException

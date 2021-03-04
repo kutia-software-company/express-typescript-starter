@@ -8,14 +8,14 @@ Start use now and just focus on your business and not spending hours in project 
 
 - **Beautiful Code** thanks to the awesome annotations of the libraries from [pleerock](https://github.com/pleerock).
 - **Dependency Injection** done with the nice framework from [TypeDI](https://github.com/pleerock/typedi).
-- **Simplified Database Query** with the ORM [Sequelize](https://github.com/sequelize/sequelize).
+- **Simplified Database Query** with the ORM [TypeORM](https://github.com/typeorm/typeorm).
 - **Clear Structure** with different layers such as controllers, services, repositories, models, middlewares...
 - **Easy Exception Handling** thanks to [routing-controllers](https://github.com/pleerock/routing-controllers).
 - **Smart Validation** thanks to [class-validator](https://github.com/pleerock/class-validator) with some nice annotations.
 - **Custom Validators** to validate your request even better and stricter ([custom-validation-classes](https://github.com/pleerock/class-validator#custom-validation-classes)).
 - **Basic Security Features** thanks to [Helmet](https://helmetjs.github.io/).
 - **Easy event dispatching** thanks to [event-dispatch](https://github.com/pleerock/event-dispatch).
-- **Fast Database Building** with simple migration from [Sequelize](https://github.com/sequelize/sequelize).
+- **Fast Database Building** with simple migration from [TypeORM](https://github.com/typeorm/typeorm).
 - **Easy Data Seeding** with our own factories.
 - **Auth System** thanks to [jsonwebtoken](https://github.com/auth0/node-jsonwebtoken).
 
@@ -70,6 +70,13 @@ The route prefix is `/api` by default, but you can change this in the .env file.
 | -------------- | ----------- |
 | **/api/users** | Example entity endpoint |
 
+
+### Database Migration
+
+- Run `npm run typeorm migration:create {name}` to create a new migration file.
+- To migrate your database run `npm run typeorm migration:run`.
+
+
 ### Project Structure
 
 | Name                              | Description |
@@ -81,7 +88,7 @@ The route prefix is `/api` by default, but you can change this in the .env file.
 | **src/api/responses**             | Response classes or interfaces to type json response bodies  |
 | **src/api/exceptions/**           | Custom HttpErrors like 404 NotFound |
 | **src/api/middlewares/**          | Express Middlewares |
-| **src/api/models/**               | Sequelize Models |
+| **src/api/models/**               | TypeORM Models |
 | **src/api/repositories/**         | Repository / DB layer |
 | **src/api/services/**             | Service layer |
 | **src/api/subscribers/**          | Event subscribers |
