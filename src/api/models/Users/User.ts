@@ -3,17 +3,17 @@ import { BaseEntity, Column, Entity, PrimaryGeneratedColumn } from 'typeorm'
 @Entity({ name: 'users' })
 export class User extends BaseEntity {
     @PrimaryGeneratedColumn('increment')
-    id: number;
+    id: number
 
-    @Column({})
+    @Column()
     first_name: string
 
-    @Column({})
+    @Column()
     last_name: string
     
-    @Column({})
+    @Column()
     email: string
 
-    @Column({ select: false })
+    @Column()
     password: string
 }
