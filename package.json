@@ -38,6 +38,7 @@
   "scripts": {
     "dev": "nodemon",
     "start": "ts-node src/index.ts",
+    "build": "tsc --project ./",
     "typeorm": "./node_modules/.bin/ts-node ./node_modules/.bin/typeorm",
     "typeorm:migration:create": "npm run typeorm -- migration:create -n"
   },
