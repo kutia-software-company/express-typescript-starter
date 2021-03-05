@@ -16,11 +16,10 @@ export const appConfig = {
     port: env('APP_PORT'),
     routePrefix: env('APP_ROUTE_PREFIX'),
     jwtSecret: env('JWT_SECRET'),
-
-    entities: env('ENTITIES'),
-    controllers: env('CONTROLLERS'),
-    middlewares: env('MIDDLEWARES'),
-    subscribers: env('SUBSCRIBERS'),
-
     appPath: getAppPath(),
+
+    entitiesDir: env('TYPEORM_ENTITIES_DIR'),
+    controllersDir: env('CONTROLLERS_DIR'),
+    middlewaresDir: env('MIDDLEWARES_DIR'),
+    subscribersDir: env('SUBSCRIBERS_DIR')
 }

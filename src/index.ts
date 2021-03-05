@@ -9,7 +9,7 @@ import { Container as containerTypeorm } from 'typeorm-typedi-extensions'
 import { eventDispatcher } from './utlis/eventDispatcher'
 
 routingControllersUseContainer(Container)
-ormUseContainer(containerTypeorm);
+ormUseContainer(containerTypeorm)
 
 // Define port
 const port = appConfig.port || 3000
@@ -22,8 +22,8 @@ createConnection({
     username: dbConfig.dbUsername,
     password: dbConfig.dbPassword,
     database: dbConfig.dbDatabase,
-    entities: [appConfig.appPath + appConfig.entities],
-    logging: true
+    entities: [appConfig.appPath + dbConfig.dbEntities],
+    logging: Boolean(dbConfig.allowLogging)
 }).then(async connection => {
     // Load subscribers
     eventDispatcher()
@@ -35,8 +35,8 @@ createConnection({
         classTransformer: true,
         defaultErrorHandler: true,
         routePrefix: appConfig.routePrefix,
-        controllers: [__dirname + appConfig.controllers],
-        middlewares: [__dirname + appConfig.middlewares]
+        controllers: [__dirname + appConfig.controllersDir],
+        middlewares: [__dirname + appConfig.middlewaresDir]
     })
 
     // Define a route handler for the default home page

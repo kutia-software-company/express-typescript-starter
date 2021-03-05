@@ -6,5 +6,7 @@ export const dbConfig = {
     dbPort: env('TYPEORM_PORT'),
     dbDatabase: env('TYPEORM_DATABASE'),
     dbUsername: env('TYPEORM_USERNAME'),
-    dbPassword: env('TYPEORM_PASSWORD')
+    dbPassword: env('TYPEORM_PASSWORD'),
+    dbEntities: env('TYPEORM_ENTITIES'),
+    allowLogging: env('TYPEORM_ALLOW_LOGGING')
 }
