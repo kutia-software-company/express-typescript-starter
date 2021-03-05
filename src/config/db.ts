@@ -8,5 +8,5 @@ export const dbConfig = {
     dbUsername: env('TYPEORM_USERNAME'),
     dbPassword: env('TYPEORM_PASSWORD'),
     dbEntities: env('TYPEORM_ENTITIES'),
-    allowLogging: env('TYPEORM_ALLOW_LOGGING')
+    allowLogging: env('TYPEORM_LOGGING')
 }

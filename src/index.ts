@@ -15,16 +15,7 @@ ormUseContainer(containerTypeorm)
 const port = appConfig.port || 3000
 
 // Create typeorm connection
-createConnection({
-    type: 'mysql',
-    host: dbConfig.dbHost,
-    port: Number(dbConfig.dbPort),
-    username: dbConfig.dbUsername,
-    password: dbConfig.dbPassword,
-    database: dbConfig.dbDatabase,
-    entities: [appConfig.appPath + dbConfig.dbEntities],
-    logging: Boolean(dbConfig.allowLogging)
-}).then(async connection => {
+createConnection().then(async connection => {
     // Load subscribers
     eventDispatcher()
 
@@ -48,4 +39,4 @@ createConnection({
     expressApp.listen(port, () => {
         console.log(`🚀 Server started at http://localhost:${port}`)
     })
-}).catch(error => console.log('Error: ', error));
+}).catch(error => console.log('Error: ', error))
