@@ -1,15 +1,14 @@
 import 'reflect-metadata'
 import { appConfig } from './config/app'
-import { dbConfig } from './config/db'
 import { Application } from 'express'
 import { createExpressServer, useContainer as routingControllersUseContainer } from 'routing-controllers'
 import { Container } from 'typedi'
-import { createConnection, useContainer as ormUseContainer } from 'typeorm'
+import { createConnection, useContainer as typeormOrmUseContainer } from 'typeorm'
 import { Container as containerTypeorm } from 'typeorm-typedi-extensions'
 import { eventDispatcher } from './utlis/eventDispatcher'
 
 routingControllersUseContainer(Container)
-ormUseContainer(containerTypeorm)
+typeormOrmUseContainer(containerTypeorm)
 
 // Define port
 const port = appConfig.port || 3000
