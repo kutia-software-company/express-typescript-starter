@@ -1,5 +1,4 @@
 import { ExpressErrorMiddlewareInterface, Middleware, HttpError } from 'routing-controllers'
-import { ValidationError } from 'class-validator'
 import * as express from 'express'
 import { Service } from 'typedi'
 
@@ -8,21 +7,22 @@ import { Service } from 'typedi'
 export class CustomErrorHandler implements ExpressErrorMiddlewareInterface {
     public error(error: any, _req: express.Request, res: express.Response, _next: express.NextFunction) {
         const responseObject = {} as any
+        responseObject.success = false
 
         // Status code
         if (error instanceof HttpError && error.httpCode) {
+            responseObject.status = error.httpCode
             res.status(error.httpCode)
         } else {
+            responseObject.status = 500
             res.status(500)
         }
 
-        // Object
-        responseObject.success = false
-        responseObject.status = error.httpCode
+        // Message
         responseObject.message = error.message
 
         // Class validator handle errors
-        if (error.httpCode == 400) {
+        if (responseObject.status == 400) {
             let validatorErrors = {} as any
             error.errors.forEach((element: any) => {
                 if (element.property && element.constraints) {
@@ -33,7 +33,7 @@ export class CustomErrorHandler implements ExpressErrorMiddlewareInterface {
         }
 
         // Append stack
-        if (error.stack && process.env.NODE_ENV === 'development' && error.httpCode == 500) {
+        if (error.stack && process.env.NODE_ENV === 'development' && responseObject.status == 500) {
             responseObject.stack = error.stack
         }
 
