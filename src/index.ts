@@ -23,7 +23,7 @@ createConnection().then(async connection => {
         validation: true,
         cors: true,
         classTransformer: true,
-        defaultErrorHandler: true,
+        defaultErrorHandler: false,
         routePrefix: appConfig.routePrefix,
         controllers: [__dirname + appConfig.controllersDir],
         middlewares: [__dirname + appConfig.middlewaresDir]
