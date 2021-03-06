@@ -1,7 +1,7 @@
-import { HttpError } from 'routing-controllers'
+import { NotFoundError } from 'routing-controllers'
 
-export class UserNotFoundException extends HttpError {
+export class UserNotFoundException extends NotFoundError {
     constructor() {
-        super(404, 'User not found!')
+        super('User not found!')
     }
 }
