@@ -1,7 +1,7 @@
 import { ExpressMiddlewareInterface } from 'routing-controllers'
 import { Service } from 'typedi'
 import * as jwt from 'jsonwebtoken'
-import { appConfig } from '../../config/app'
+import { appConfig } from '../../../config/app'
 
 @Service()
 export class AuthCheck implements ExpressMiddlewareInterface {

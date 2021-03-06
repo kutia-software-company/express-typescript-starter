@@ -2,7 +2,7 @@ import { Param, Get, JsonController, Post, Body, Put, Delete, HttpCode, UseBefor
 import { UserService } from '../../services/Users/UserService'
 import { Service } from 'typedi'
 import { UserCreateRequest } from '../../validators/Users/UserCreateRequest'
-import { AuthCheck } from '../../middlewares/AuthCheck'
+import { AuthCheck } from '../../middlewares/Auth/AuthCheck'
 import { ResourceOptions } from '../../transformers/Application/ResourceOptions'
 
 @Service()
