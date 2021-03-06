@@ -20,7 +20,7 @@ createConnection().then(async connection => {
 
     // Create a new express server instance
     const expressApp: Application = createExpressServer({
-        validation: true,
+        validation: { stopAtFirstError: true },
         cors: true,
         classTransformer: true,
         defaultErrorHandler: false,

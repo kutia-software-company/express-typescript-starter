@@ -27,7 +27,7 @@ export class UserController {
 
     @Post()
     @HttpCode(201)
-    public async create(@Body({ validate: true }) user: UserCreateRequest) {
+    public async create(@Body() user: UserCreateRequest) {
         return await this.userService.create(user)
     }
 
