@@ -66,8 +66,8 @@ npm run dev
 
 Docker is a platform for developers and sysadmins to build, run, and share applications with containers.
 
-- Starts the containers in the background and leaves them running: `docker-compose up -d`
-- Stops containers and removes containers, networks, volumes, and images: `docker-compose down`
+- Starts the containers in the background and leaves them running: `docker-compose up -d`.
+- Stops containers and removes containers, networks, volumes, and images: `docker-compose down`.
 
 ### API Routes
 
