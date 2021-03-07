@@ -1,4 +1,4 @@
-import { env } from '../utlis/env';
+import { env } from '../utils/env';
 
 export const dbConfig = {
     dbConnection: env('TYPEORM_CONNECTION'),

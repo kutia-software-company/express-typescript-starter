@@ -1,4 +1,4 @@
-import { env } from '../utlis/env'
+import { env } from '../utils/env'
 
 function getAppPath() {
     let currentDir = __dirname

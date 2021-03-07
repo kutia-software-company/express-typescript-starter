@@ -5,7 +5,7 @@ import { createExpressServer, useContainer as routingControllersUseContainer } f
 import { Container } from 'typedi'
 import { createConnection, useContainer as typeormOrmUseContainer } from 'typeorm'
 import { Container as containerTypeorm } from 'typeorm-typedi-extensions'
-import { eventDispatcher } from './utlis/eventDispatcher'
+import { eventDispatcher } from './utils/eventDispatcher'
 
 routingControllersUseContainer(Container)
 typeormOrmUseContainer(containerTypeorm)
