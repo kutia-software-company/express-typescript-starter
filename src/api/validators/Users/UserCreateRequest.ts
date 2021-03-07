@@ -1,26 +1,26 @@
 import { IsNotEmpty, IsEmail, IsString, MinLength, MaxLength } from 'class-validator'
 
 export class UserCreateRequest {
-    @IsNotEmpty()
-    @IsString()
-    @MinLength(2)
     @MaxLength(20)
+    @MinLength(2)
+    @IsString()
+    @IsNotEmpty()
     first_name: string
 
-    @IsNotEmpty()
-    @IsString()
-    @MinLength(2)
     @MaxLength(20)
+    @MinLength(2)
+    @IsString()
+    @IsNotEmpty()
     last_name: string
 
-    @IsNotEmpty()
-    @IsString()
     @IsEmail()
+    @IsString()
+    @IsNotEmpty()
     email: string
 
-    @IsNotEmpty()
-    @IsString()
-    @MinLength(6)
     @MaxLength(20)
+    @MinLength(6)
+    @IsString()
+    @IsNotEmpty()
     password: string
 }
