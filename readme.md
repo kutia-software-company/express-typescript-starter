@@ -18,6 +18,7 @@ Start use now and just focus on your business and not spending hours in project 
 - **Fast Database Building** with simple migration from [TypeORM](https://github.com/typeorm/typeorm).
 - **Easy Data Seeding** with our own factories.
 - **Auth System** thanks to [jsonwebtoken](https://github.com/auth0/node-jsonwebtoken).
+- **Docker** thanks to [docker](https://github.com/docker).
 
 ### Installation
 
@@ -61,6 +62,12 @@ npm run dev
 > This starts a local server using `nodemon`, which will watch for any file changes and will restart the server according to these changes.
 > The server address will be displayed to you as `http://localhost:3000`.
 
+### Docker
+
+Docker is a platform for developers and sysadmins to build, run, and share applications with containers.
+
+- Starts the containers in the background and leaves them running: `docker-compose up -d`
+- Stops containers and removes containers, networks, volumes, and images: `docker-compose down`
 
 ### API Routes
 
