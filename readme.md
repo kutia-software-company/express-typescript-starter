@@ -19,7 +19,6 @@ Start use now and just focus on your business and not spending hours in project 
 - **Easy Data Seeding** with our own factories.
 - **Auth System** thanks to [jsonwebtoken](https://github.com/auth0/node-jsonwebtoken).
 - **Docker** thanks to [docker](https://github.com/docker).
-- **API Documentation** thanks to [swagger](http://swagger.io/) and [routing-controllers-openapi](https://github.com/epiphone/routing-controllers-openapi).
 
 ### Installation
 
@@ -77,7 +76,7 @@ The route prefix is `/api` by default, but you can change this in the .env file.
 | Route          | Description |
 | -------------- | ----------- |
 | **/api/users** | Example entity endpoint |
-| **/docs**      | This is the Swagger UI with our API documentation |
+
 
 ### Database Migration
 
