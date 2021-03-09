@@ -42,5 +42,5 @@ createConnection().then(async connection => {
     })
 
     // Socket.io
-    createSocketServer(3001, { controllers: [__dirname + appConfig.controllersDir] });
+    createSocketServer(3001, { controllers: [__dirname + appConfig.controllersDir] })
 }).catch(error => console.log('Error: ', error))
