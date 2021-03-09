@@ -21,6 +21,7 @@
     "mysql2": "^2.2.5",
     "reflect-metadata": "^0.1.13",
     "routing-controllers": "^0.9.0",
+    "socket-controllers": "0.0.5",
     "typedi": "^0.10.0",
     "typeorm": "^0.2.31",
     "typeorm-seeding": "^1.6.1",
@@ -32,7 +33,7 @@
     "@types/express": "^4.17.11",
     "@types/faker": "^5.1.7",
     "@types/multer": "^1.4.5",
-    "@types/node": "^14.14.32",
+    "@types/node": "^14.14.33",
     "nodemon": "^2.0.7",
     "ts-node": "^9.1.1",
     "typescript": "^4.2.3"

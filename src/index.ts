@@ -6,9 +6,11 @@ import { Container } from 'typedi'
 import { createConnection, useContainer as typeormOrmUseContainer } from 'typeorm'
 import { Container as containerTypeorm } from 'typeorm-typedi-extensions'
 import { eventDispatcher } from './utils/eventDispatcher'
+import { createSocketServer, useContainer as socketUseContainer } from 'socket-controllers'
 
 routingControllersUseContainer(Container)
 typeormOrmUseContainer(containerTypeorm)
+socketUseContainer(Container)
 
 // Define port
 const port = appConfig.port || 3000
@@ -38,4 +40,7 @@ createConnection().then(async connection => {
     expressApp.listen(port, () => {
         console.log(`🚀 Server started at http://localhost:${port}`)
     })
+
+    // Socket.io
+    createSocketServer(3001, { controllers: [__dirname + appConfig.controllersDir] });
 }).catch(error => console.log('Error: ', error))

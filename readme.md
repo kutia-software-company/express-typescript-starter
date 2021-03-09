@@ -19,6 +19,7 @@ Start use now and just focus on your business and not spending hours in project 
 - **Easy Data Seeding** with our own factories.
 - **Auth System** thanks to [jsonwebtoken](https://github.com/auth0/node-jsonwebtoken).
 - **Docker** thanks to [docker](https://github.com/docker).
+- **Class-based controllers to handle websocket events** thanks to [socket-controllers](https://github.com/typestack/socket-controllers).
 
 ### Installation
 
