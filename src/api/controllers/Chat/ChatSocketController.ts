@@ -7,7 +7,6 @@ export class ChatSocketController {
     @OnConnect()
     connection(@ConnectedSocket() socket: any) {
         console.log('Client connected.')
-        return socket
     }
 
     @OnDisconnect()
