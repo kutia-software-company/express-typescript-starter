@@ -75,6 +75,8 @@ The route prefix is `/api` by default, but you can change this in the .env file.
 
 | Route          | Description |
 | -------------- | ----------- |
+| **/**          | Home page |
+| **/api/login** | Login |
 | **/api/users** | Example entity endpoint |
 
 
