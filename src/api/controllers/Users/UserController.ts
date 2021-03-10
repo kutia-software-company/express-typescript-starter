@@ -9,7 +9,7 @@ import { ResourceOptions } from '../../transformers/Application/ResourceOptions'
 @JsonController('/users')
 @UseBefore(AuthCheck)
 export class UserController {
-    constructor(
+    public constructor(
         private userService: UserService
         ) {
         //

@@ -6,7 +6,7 @@ import { LoginService } from '../..//services/Auth/LoginService'
 @Service()
 @JsonController('/login')
 export class LoginController {
-    constructor(
+    public constructor(
         private loginService: LoginService
         ) {
         //
