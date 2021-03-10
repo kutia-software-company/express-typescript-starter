@@ -2,7 +2,6 @@
   "name": "express-typescript",
   "version": "1.0.0",
   "description": "Express typescript.",
-  "main": "dist/index.ts",
   "dependencies": {
     "@types/glob": "^7.1.3",
     "@types/jsonwebtoken": "^8.5.0",
@@ -39,8 +38,8 @@
     "typescript": "^4.2.3"
   },
   "scripts": {
-    "dev": "NODE_ENV=development nodemon",
-    "start": "ts-node src/index.ts",
+    "dev": "NODE_ENV=development ./node_modules/.bin/nodemon --exec './node_modules/.bin/ts-node' src/index.ts",
+    "start": "NODE_ENV=production node ./dist/index.js",
     "build": "tsc --project ./",
     "typeorm": "./node_modules/.bin/ts-node ./node_modules/.bin/typeorm",
     "typeorm:migration:create": "npm run typeorm -- migration:create -n",
