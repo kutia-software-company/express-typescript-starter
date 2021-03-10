@@ -33,7 +33,7 @@ createConnection().then(async connection => {
 
     // Define a route handler for the default home page
     expressApp.get('/', (req, res) => {
-        res.send('Hello world!')
+        res.json({ title: appConfig.name, mode: appConfig.node, date: new Date() })
     })
 
     // Start the Express server
