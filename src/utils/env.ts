@@ -1,5 +1,5 @@
 import * as dotenv from 'dotenv'
-dotenv.config()
+dotenv.config({ path: `.env.${process.env.NODE_ENV}` })
 
 export function env(key: string): string {
     if (typeof process.env[key] === 'undefined') {

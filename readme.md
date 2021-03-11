@@ -40,9 +40,9 @@ Install a MySQL database.
 
 Clone or download this project. Configure your package.json for your new project.
 
-Then copy the `.env.example` file and rename it to `.env`. In this file you have to add your database connection information.
+Then copy the `.env.example` file and rename it to `.env.development`. In this file you have to add your database connection information.
 
-Create a new database with the name you have in your `.env` file.
+Create a new database with the name you have in your `.env.development` file.
 
 Then setup your application environment.
 
@@ -72,7 +72,7 @@ Docker is a platform for developers and sysadmins to build, run, and share appli
 
 ### API Routes
 
-The route prefix is `/api` by default, but you can change this in the .env file.
+The route prefix is `/api` by default, but you can change this in the .env.development file.
 
 | Route          | Description |
 | -------------- | ----------- |
