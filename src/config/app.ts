@@ -20,6 +20,7 @@ export const appConfig = {
 
     entitiesDir: env('TYPEORM_ENTITIES_DIR'),
     controllersDir: env('CONTROLLERS_DIR'),
+    cronJobsDir: env('CRON_JOBS_DIR'),
     middlewaresDir: env('MIDDLEWARES_DIR'),
     subscribersDir: env('SUBSCRIBERS_DIR')
 }
