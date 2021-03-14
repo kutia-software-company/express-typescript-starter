@@ -1,4 +1,5 @@
 import { env } from '../utils/env'
+import { toBool } from '../utils/to-bool'
 
 function getAppPath() {
     let currentDir = __dirname
@@ -18,8 +19,11 @@ export const appConfig = {
     jwtSecret: env('JWT_SECRET'),
     appPath: getAppPath(),
 
+    cronJobsEnabled: toBool(env('ENABLE_CRON_JOBS')),
+
     entitiesDir: env('TYPEORM_ENTITIES_DIR'),
     controllersDir: env('CONTROLLERS_DIR'),
+    cronJobsDir: env('CRON_JOBS_DIR'),
     middlewaresDir: env('MIDDLEWARES_DIR'),
     subscribersDir: env('SUBSCRIBERS_DIR')
 }

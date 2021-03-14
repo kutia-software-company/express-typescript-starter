@@ -7,10 +7,12 @@ import { createConnection, useContainer as typeormOrmUseContainer } from 'typeor
 import { Container as containerTypeorm } from 'typeorm-typedi-extensions'
 import { eventDispatcher } from './utils/eventDispatcher'
 import { createSocketServer, useContainer as socketUseContainer } from 'socket-controllers'
+import { registerController as registerCronJobs, useContainer as cronUseContainer } from 'cron-decorators'
 
 routingControllersUseContainer(Container)
 typeormOrmUseContainer(containerTypeorm)
 socketUseContainer(Container)
+cronUseContainer(Container)
 
 // Define port
 const port = appConfig.port || 3000
@@ -19,6 +21,11 @@ const port = appConfig.port || 3000
 createConnection().then(async connection => {
     // Load subscribers
     eventDispatcher()
+
+    // Register cron jobs
+    if ((appConfig.cronJobsEnabled)) {
+        registerCronJobs([__dirname + appConfig.cronJobsDir])
+    }
 
     // Create a new express server instance
     const expressApp: Application = createExpressServer({
