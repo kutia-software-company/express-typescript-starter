@@ -22,8 +22,10 @@ createConnection().then(async connection => {
     // Load subscribers
     eventDispatcher()
 
-    // Load cron jobs
-    registerCronJobs([__dirname + appConfig.cronJobsDir])
+    // Register cron jobs
+    if ((appConfig.cronJobsEnabled)) {
+        registerCronJobs([__dirname + appConfig.cronJobsDir])
+    }
 
     // Create a new express server instance
     const expressApp: Application = createExpressServer({
