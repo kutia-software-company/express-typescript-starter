@@ -2,7 +2,7 @@ import { CronController as CronJobClass, Cron } from 'cron-decorators'
 import { Service as Injectable } from 'typedi'
 
 @Injectable()
-@CronJobClass('jobs')
+@CronJobClass('example-job')
 export class ExampleJob {
     // Async cron job that runs every second.
     @Cron('Log every second', '* * * * * *')
@@ -16,7 +16,7 @@ export class ExampleJob {
         console.log("I am cron Job and I just ran!")
     }
 
-    // Cron job that runs at the 22nd December 2019 at 15:42:00.
+    // Cron job that runs at the 22nd December 2025 at 15:42:00.
     @Cron('Log on specifc date', new Date('December 22, 2025 15:42:00'))
     public dateCronJob(): void {
         console.log("I am cron Job and I just ran!")
