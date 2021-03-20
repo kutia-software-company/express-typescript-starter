@@ -1,4 +1,4 @@
-import { OnConnect, SocketController, ConnectedSocket, OnDisconnect, MessageBody, OnMessage } from 'socket-controllers'
+import { OnConnect, SocketController, ConnectedSocket , SocketIO, OnDisconnect, MessageBody, OnMessage } from 'socket-controllers'
 import { Service } from 'typedi'
 
 @Service()
@@ -15,7 +15,7 @@ export class ChatSocketController {
     }
 
     @OnMessage('save-message')
-    save(@ConnectedSocket() socket: any, @MessageBody() message: any) {
+    save(@SocketIO() socket: any, @MessageBody() message: any) {
         console.log('Received message: ', message)
         console.log('Setting id to the message and sending it back to the client.')
         message.id = 1
