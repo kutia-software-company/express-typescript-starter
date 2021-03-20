@@ -21,8 +21,8 @@ export class UserController {
     }
 
     @Get('/:id')
-    public async getOne(@Param('id') id: number) {
-        return await this.userService.findOneById(id)
+    public async getOne(@Param('id') id: number, @QueryParams() resourceOptions: ResourceOptions) {
+        return await this.userService.findOneById(id, resourceOptions.getAll())
     }
 
     @Post()

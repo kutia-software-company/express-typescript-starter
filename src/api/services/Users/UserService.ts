@@ -16,8 +16,8 @@ export class UserService {
         return await this.userRepository.findAndCountRaw(resourceOptions)
     }
 
-    public async findOneById(id: number) {
-        return await this.getRequestedUserOrFail(id)
+    public async findOneById(id: number, resourceOptions?: object) {
+        return await this.getRequestedUserOrFail(id, resourceOptions)
     }
 
     public async create(data: any) {
@@ -38,8 +38,8 @@ export class UserService {
         return await this.userRepository.delete(id)
     }
 
-    private async getRequestedUserOrFail(id: number) {
-        let user = await this.userRepository.findOneByIdRaw(id)
+    private async getRequestedUserOrFail(id: number, resourceOptions?: object) {
+        let user = await this.userRepository.findOneByIdRaw(id, resourceOptions)
 
         if (!user) {
             throw new UserNotFoundException
