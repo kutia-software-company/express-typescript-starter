@@ -14,7 +14,7 @@ export const appConfig = {
     isStaging: env('NODE_ENV') === 'staging',
     isDevelopment: env('NODE_ENV') === 'development',
     name: env('APP_NAME'),
-    port: env('APP_PORT'),
+    port: Number(env('APP_PORT')),
     routePrefix: env('APP_ROUTE_PREFIX'),
     jwtSecret: env('JWT_SECRET'),
     appPath: getAppPath(),
