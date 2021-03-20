@@ -19,7 +19,7 @@ export class ResourceOptions {
             return []
         }
 
-        let list:any  = {};
+        let list: any = {}
 
         if (!isEmpty(this.sortByDesc)) {
             let sortByDesc = this.sortByDesc.split(',')
