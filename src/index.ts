@@ -69,7 +69,7 @@ export class App {
             next()
         })
         
-        server.listen(this.port, () => console.log(`🚀 Server started at http://localhost:${this.port}`))
+        server.listen(this.port, () => console.log(`🚀 Server started at http://localhost:${this.port}\n🚨️ Environment: ${process.env.NODE_ENV}`))
 
         useSocketServer(io, { controllers: [__dirname + appConfig.controllersDir] })
     }
