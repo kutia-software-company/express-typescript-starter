@@ -21,6 +21,7 @@ Start use now and just focus on your business and not spending hours in project 
 - **Docker** thanks to [docker](https://github.com/docker).
 - **Class-based to handle websocket events** thanks to [socket-controllers](https://github.com/typestack/socket-controllers).
 - **Class-based to handle Cron Jobs** thanks to [cron-decorators](https://github.com/mrbandler/cron-decorators).
+- **API Documentation** thanks to [swagger](http://swagger.io/) and [routing-controllers-openapi](https://github.com/epiphone/routing-controllers-openapi).
 
 ### Installation
 
@@ -80,7 +81,7 @@ The route prefix is `/api` by default, but you can change this in the .env file.
 | **/**          | Home page |
 | **/api/login** | Login |
 | **/api/users** | Example entity endpoint |
-
+| **/docs**      | This is the Swagger UI with our API documentation |
 
 ### Database Migration
 
