@@ -115,7 +115,7 @@ Pagination and Sort are implemented on method `getAll` for `Users`, try to send 
 | **src/api/repositories/**         | Repository / DB layer |
 | **src/api/services/**             | Service layer |
 | **src/api/subscribers/**          | Event subscribers |
-| **src/api/validators/**           | Request classes with validation rules if the body is not equal with a model |
+| **src/api/requests/**             | Request classes with validation rules if the body is not equal with a model |
 | **src/api/transformers/**         | Class-transformer allows you to transform plain object to some instance of class and versa |
 | **src/api/cron-jobs/**            | Cron Jobs |
 | **src/database/factories**        | Factory the generate fake entities |

@@ -1,6 +1,6 @@
 import { Param, Get, JsonController, Post, Body, Put, Delete, HttpCode } from 'routing-controllers'
 import { Service } from 'typedi'
-import { LoginRequest } from '../../validators/Auth/LoginRequest'
+import { LoginRequest } from '../../requests/Auth/LoginRequest'
 import { LoginService } from '../..//services/Auth/LoginService'
 
 @Service()
