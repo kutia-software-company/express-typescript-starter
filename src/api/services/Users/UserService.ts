@@ -29,9 +29,9 @@ export class UserService {
     }
 
     public async updateOneById(id: number, data: any) {
-        await this.getRequestedUserOrFail(id)
+        await this.userRepository.update(id, data)
 
-        return await this.userRepository.update(id, data)
+        return await this.getRequestedUserOrFail(id)
     }
 
     public async deleteOneById(id: number) {
