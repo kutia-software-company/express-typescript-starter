@@ -8,6 +8,7 @@
     "@types/jsonwebtoken": "^8.5.1",
     "@types/socket.io": "^2.1.13",
     "@types/swagger-ui-express": "^4.1.2",
+    "@types/yargs": "^16.0.1",
     "bcrypt": "^5.0.1",
     "body-parser": "^1.19.0",
     "class-transformer": "^0.4.0",
@@ -33,7 +34,8 @@
     "typedi": "^0.10.0",
     "typeorm": "^0.2.31",
     "typeorm-seeding": "^1.6.1",
-    "typeorm-typedi-extensions": "^0.4.1"
+    "typeorm-typedi-extensions": "^0.4.1",
+    "yargs": "^16.2.0"
   },
   "devDependencies": {
     "@types/bcrypt": "^3.0.0",
@@ -63,6 +65,9 @@
     "expressjs",
     "express-typescript"
   ],
+  "bin": {
+    "cli": "cli/index.ts"
+  },
   "author": "Gentrit Abazi",
   "license": "MIT",
   "bugs": {
