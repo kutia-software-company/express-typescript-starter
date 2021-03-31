@@ -2,14 +2,15 @@ import { Param, Get, JsonController, Post, Body, Put, Delete, HttpCode } from 'r
 import { Service } from 'typedi'
 import { LoginRequest } from '../../requests/Auth/LoginRequest'
 import { LoginService } from '../..//services/Auth/LoginService'
+import { ControllerBase } from '../../../abstracts/ControllerBase'
 
 @Service()
 @JsonController('/login')
-export class LoginController {
+export class LoginController extends ControllerBase {
     public constructor(
         private loginService: LoginService
-        ) {
-        //
+    ) {
+        super()
     }
 
     @Get()

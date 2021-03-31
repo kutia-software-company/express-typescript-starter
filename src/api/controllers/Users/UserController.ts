@@ -4,15 +4,16 @@ import { Service } from 'typedi'
 import { UserCreateRequest } from '../../requests/Users/UserCreateRequest'
 import { AuthCheck } from '../../middlewares/Auth/AuthCheck'
 import { ResourceOptions } from '../../transformers/Application/ResourceOptions'
+import { ControllerBase } from '../../../abstracts/ControllerBase'
 
 @Service()
 @JsonController('/users')
 @UseBefore(AuthCheck)
-export class UserController {
+export class UserController extends ControllerBase {
     public constructor(
         private userService: UserService
-        ) {
-        //
+    ) {
+        super()
     }
 
     @Get()
