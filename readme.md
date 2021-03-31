@@ -48,7 +48,7 @@ Create a new database with the name you have in your `.env` file.
 
 Then setup your application environment.
 
-```bash
+```console
 npm install
 ```
 
@@ -58,7 +58,7 @@ npm install
 
 Go to the project dir and start your app with this npm script.
 
-```bash
+```console
 npm run dev
 ```
 
