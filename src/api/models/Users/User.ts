@@ -1,5 +1,6 @@
 import { BeforeInsert, Column, Entity, PrimaryGeneratedColumn } from 'typeorm'
 import { EntityBase } from '../../../abstracts/EntityBase'
+import { Exclude } from 'class-transformer'
 import bcrypt from 'bcrypt'
 
 @Entity({ name: 'users' })
@@ -17,6 +18,7 @@ export class User extends EntityBase {
     email: string
 
     @Column()
+    @Exclude()
     password: string
 
     @BeforeInsert()
