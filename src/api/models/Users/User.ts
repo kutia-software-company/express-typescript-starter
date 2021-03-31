@@ -1,7 +1,8 @@
-import { BeforeInsert, Column, Entity, PrimaryGeneratedColumn } from 'typeorm'
+import { BeforeInsert, Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm'
 import { EntityBase } from '../../../abstracts/EntityBase'
 import { Exclude, Expose } from 'class-transformer'
 import bcrypt from 'bcrypt'
+import { Pet } from '../Pets/Pet'
 
 @Entity({ name: 'users' })
 export class User extends EntityBase {
@@ -20,6 +21,9 @@ export class User extends EntityBase {
     @Column()
     @Exclude()
     password: string
+
+    @OneToMany(type => Pet, pet => pet.user)
+    public pets: Pet[]
 
     @Expose({ name: 'full_name' })
     get fullName() {
