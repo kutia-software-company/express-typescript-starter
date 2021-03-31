@@ -1,4 +1,4 @@
-# Introduction
+### Introduction
 
 Project is a faster way to building a Node.js RESTful API in TypeScript.
 
@@ -25,7 +25,7 @@ Start use now and just focus on your business and not spending hours in project 
 
 ### Installation
 
-### Step 1: Set up the Development Environment
+#### Step 1: Set up the Development Environment
 
 You need to set up your development environment before you can do anything.
 
@@ -38,7 +38,7 @@ Install a MySQL database.
 
 > If you work with a mac, i recommend to use [DBngin](https://dbngin.com) for the installation.
 
-### Step 2: Create new Project
+#### Step 2: Create new Project
 
 Clone or download this project. Configure your package.json for your new project.
 
@@ -54,7 +54,7 @@ npm install
 
 > This installs all dependencies with npm. So after that your development environment is ready to use.
 
-### Step 3: Serve your App
+#### Step 3: Serve your App
 
 Go to the project dir and start your app with this npm script.
 
