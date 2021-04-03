@@ -12,6 +12,7 @@ import express from 'express'
 import { validationMetadatasToSchemas } from 'class-validator-jsonschema'
 import { routingControllersToSpec } from 'routing-controllers-openapi'
 import * as swaggerUiExpress from 'swagger-ui-express'
+import { buildSchema } from 'type-graphql'
 
 export class App {
     private app: express.Application = express()
@@ -31,6 +32,7 @@ export class App {
         this.registerRoutingControllers()
         this.registerDefaultHomePage()
         this.setupSwagger()
+        this.setupGraphQL()
     }
 
     private useContainers() {
@@ -64,11 +66,11 @@ export class App {
         const server = require('http').Server(this.app)
         const io = require('socket.io')(server)
 
-        this.app.use(function(req: any, res: any, next) {
+        this.app.use(function (req: any, res: any, next) {
             req.io = io
             next()
         })
-        
+
         server.listen(this.port, () => console.log(`🚀 Server started at http://localhost:${this.port}\n🚨️ Environment: ${process.env.NODE_ENV}`))
 
         useSocketServer(io, { controllers: [__dirname + appConfig.controllersDir] })
@@ -119,6 +121,27 @@ export class App {
 
         // Use Swagger
         this.app.use('/docs', swaggerUiExpress.serve, swaggerUiExpress.setup(spec))
+    }
+
+    private async setupGraphQL() {
+        if (!appConfig.graphqlEnabled) {
+            return false
+        }
+
+        const graphqlHTTP = require('express-graphql').graphqlHTTP
+
+        const schema = await buildSchema({
+            resolvers: [__dirname + appConfig.resolversDir],
+            emitSchemaFile: path.resolve(__dirname, 'schema.gql'),
+            container: Container
+        })
+
+        this.app.use('/graphql', (request: express.Request, response: express.Response) => {
+            graphqlHTTP({
+                schema,
+                graphiql: true
+            })(request, response)
+        })
     }
 }
 
