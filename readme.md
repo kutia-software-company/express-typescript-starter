@@ -22,6 +22,7 @@ Start use now and just focus on your business and not spending hours in project 
 - **Class-based to handle websocket events** thanks to [socket-controllers](https://github.com/typestack/socket-controllers).
 - **Class-based to handle Cron Jobs** thanks to [cron-decorators](https://github.com/mrbandler/cron-decorators).
 - **API Documentation** thanks to [swagger](http://swagger.io/) and [routing-controllers-openapi](https://github.com/epiphone/routing-controllers-openapi).
+- **GraphQL** thanks to [TypeGraphQL](https://19majkel94.github.io/type-graphql/) we have a some cool decorators to simplify the usage of GraphQL.
 
 ### Installation
 
@@ -82,6 +83,7 @@ The route prefix is `/api` by default, but you can change this in the .env file.
 | **/api/login** | Login |
 | **/api/users** | Example entity endpoint |
 | **/docs**      | This is the Swagger UI with our API documentation |
+| **/graphql**   | Route to the graphql editor or your query/mutations requests |
 
 ### Database Migration
 
@@ -118,6 +120,8 @@ Pagination and Sort are implemented on method `getAll` for `Users`, try to send 
 | **src/api/requests/**             | Request classes with validation rules if the body is not equal with a model |
 | **src/api/transformers/**         | Class-transformer allows you to transform plain object to some instance of class and versa |
 | **src/api/cron-jobs/**            | Cron Jobs |
+| **src/api/resolvers/**            | GraphQL resolvers (query, mutation & field-resolver) |
+| **src/api/types/**                | GraphQL types, input-types and scalar types |
 | **src/database/factories**        | Factory the generate fake entities |
 | **src/database/migrations**       | Database migration scripts |
 | **src/database/seeds**            | Seeds to create some data in the database |

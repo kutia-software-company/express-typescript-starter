@@ -20,10 +20,12 @@ export const appConfig = {
     appPath: getAppPath(),
 
     cronJobsEnabled: toBool(env('ENABLE_CRON_JOBS')),
+    graphqlEnabled: toBool(env('ENABLE_GRAPHQL')),
 
     entitiesDir: env('TYPEORM_ENTITIES_DIR'),
     controllersDir: env('CONTROLLERS_DIR'),
     cronJobsDir: env('CRON_JOBS_DIR'),
     middlewaresDir: env('MIDDLEWARES_DIR'),
-    subscribersDir: env('SUBSCRIBERS_DIR')
+    subscribersDir: env('SUBSCRIBERS_DIR'),
+    resolversDir: env('RESOLVERS_DIR')
 }
