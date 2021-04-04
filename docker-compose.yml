@@ -25,8 +25,6 @@ services:
         restart: "unless-stopped"
         networks:
             - backend
-        links:
-            - mysql
         depends_on:
             - mysql
 
