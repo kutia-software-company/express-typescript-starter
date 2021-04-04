@@ -13,6 +13,7 @@ import { validationMetadatasToSchemas } from 'class-validator-jsonschema'
 import { routingControllersToSpec } from 'routing-controllers-openapi'
 import * as swaggerUiExpress from 'swagger-ui-express'
 import { buildSchema } from 'type-graphql'
+import Helmet from 'helmet'
 
 export class App {
     private app: express.Application = express()
@@ -28,6 +29,7 @@ export class App {
         this.registerEvents()
         this.registerCronJobs()
         this.serveStaticFiles()
+        this.setupMiddlewares()
         this.registerSocketControllers()
         this.registerRoutingControllers()
         this.registerDefaultHomePage()
@@ -60,6 +62,10 @@ export class App {
 
     private serveStaticFiles() {
         this.app.use('/public', express.static(path.join(__dirname, 'public'), { maxAge: 31557600000 }))
+    }
+
+    private setupMiddlewares() {
+        this.app.use(Helmet())
     }
 
     private registerSocketControllers() {

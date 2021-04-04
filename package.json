@@ -24,6 +24,7 @@
     "express-validator": "^6.10.0",
     "glob": "^7.1.6",
     "graphql": "^15.5.0",
+    "helmet": "^4.4.1",
     "jsonwebtoken": "^8.5.1",
     "multer": "^1.4.2",
     "mysql2": "^2.2.5",
