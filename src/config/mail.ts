@@ -6,6 +6,5 @@ export const mailConfig = {
     port: Number(env('MAIL_PORT')),
     authUser: env('MAIL_AUTH_USER'),
     authPassword: env('MAIL_AUTH_PASSWORD'),
-    fromName: env('MAIL_FROM_NAME'),
-    fromAddress: env('MAIL_FROM_ADDRESS')
+    fromName: env('MAIL_FROM_NAME')
 }
