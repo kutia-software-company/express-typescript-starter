@@ -3,8 +3,8 @@ import { SendWelcomeMail } from '../../queue-jobs/SendWelcomeMail'
 
 @EventSubscriber()
 export class UserEventSubscriber {
-    @On('onUserRegistered')
-    public onUserRegistered(user: any) {
+    @On('onUserRegister')
+    public onUserRegister(user: any) {
         (new SendWelcomeMail(user)).process()
     }
 

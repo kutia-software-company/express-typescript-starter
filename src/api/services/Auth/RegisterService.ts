@@ -19,7 +19,7 @@ export class RegisterService {
     public async register(data: object) {
         let user = await this.userRepository.save(this.userRepository.create(data))
 
-        this.eventDispatcher.dispatch('onUserRegistered', user)
+        this.eventDispatcher.dispatch('onUserRegister', user)
 
         return this.jwt({ userId: user.id, email: user.email }, { user: { id: user.id, email: user.email } })
     }
