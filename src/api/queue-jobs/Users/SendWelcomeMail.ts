@@ -1,4 +1,4 @@
-import { QueueJobBase } from '../../abstracts/QueueJobBase'
+import { QueueJobBase } from '../../../abstracts/QueueJobBase'
 
 export class SendWelcomeMail extends QueueJobBase {
     readonly jobName = 'SendWelcomeMail'
