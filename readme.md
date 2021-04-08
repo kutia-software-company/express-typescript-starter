@@ -23,6 +23,7 @@ Start use now and just focus on your business and not spending hours in project 
 - **Class-based to handle Cron Jobs** thanks to [cron-decorators](https://github.com/mrbandler/cron-decorators).
 - **API Documentation** thanks to [swagger](http://swagger.io/) and [routing-controllers-openapi](https://github.com/epiphone/routing-controllers-openapi).
 - **GraphQL** thanks to [TypeGraphQL](https://19majkel94.github.io/type-graphql/) we have a some cool decorators to simplify the usage of GraphQL.
+- **Queue Jobs** thanks to [BullMQ](https://github.com/taskforcesh/bullmq).
 
 ### Installation
 
@@ -126,6 +127,7 @@ Pagination and Sort are implemented on method `getAll` for `Users`, try to send 
 | **src/api/cron-jobs/**            | Cron Jobs |
 | **src/api/resolvers/**            | GraphQL resolvers (query, mutation & field-resolver) |
 | **src/api/types/**                | GraphQL types, input-types and scalar types |
+| **src/api/queue-jobs/**           | Queue Jobs |
 | **src/infrastructure/**           | App Infrastructure |
 | **src/database/factories**        | Factory the generate fake entities |
 | **src/database/migrations**       | Database migration scripts |
