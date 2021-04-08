@@ -98,6 +98,10 @@ The route prefix is `/api` by default, but you can change this in the .env file.
 
 To enable cron jobs you just need to update your env file by set `ENABLE_CRON_JOBS` to `true`.
 
+### Sending Mail
+
+- `return await (new MailSender).text('Hello').to('example@gmail.com').send()`.
+
 ### Pagination & Sort
 
 Pagination and Sort are implemented on method `getAll` for `Users`, try to send an api like this: `http://localhost:3000/api/users?limit=10&page=1&sortByDesc=id`.
@@ -122,6 +126,7 @@ Pagination and Sort are implemented on method `getAll` for `Users`, try to send 
 | **src/api/cron-jobs/**            | Cron Jobs |
 | **src/api/resolvers/**            | GraphQL resolvers (query, mutation & field-resolver) |
 | **src/api/types/**                | GraphQL types, input-types and scalar types |
+| **src/infrastructure/**           | App Infrastructure |
 | **src/database/factories**        | Factory the generate fake entities |
 | **src/database/migrations**       | Database migration scripts |
 | **src/database/seeds**            | Seeds to create some data in the database |
