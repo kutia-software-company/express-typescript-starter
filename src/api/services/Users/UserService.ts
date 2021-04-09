@@ -20,18 +20,18 @@ export class UserService {
         return await this.getRequestedUserOrFail(id, resourceOptions)
     }
 
-    public async create(data: any) {
-        let user = await this.userRepository.save(this.userRepository.create(data))
+    public async create(data: object) {
+        let user = await this.userRepository.createUser(data)
 
         this.eventDispatcher.dispatch('onUserCreate', user)
 
         return user
     }
 
-    public async updateOneById(id: number, data: any) {
-        await this.userRepository.update(id, data)
+    public async updateOneById(id: number, data: object) {
+        const user = await this.getRequestedUserOrFail(id)
 
-        return await this.getRequestedUserOrFail(id)
+        return await this.userRepository.updateUser(user, data)
     }
 
     public async deleteOneById(id: number) {

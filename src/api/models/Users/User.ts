@@ -1,4 +1,4 @@
-import { BeforeInsert, Column, Entity, PrimaryGeneratedColumn } from 'typeorm'
+import { BeforeInsert, BeforeUpdate, Column, Entity, PrimaryGeneratedColumn } from 'typeorm'
 import { EntityBase } from '../../../abstracts/EntityBase'
 import { Exclude, Expose } from 'class-transformer'
 import bcrypt from 'bcrypt'
@@ -27,6 +27,7 @@ export class User extends EntityBase {
     }
 
     @BeforeInsert()
+    @BeforeUpdate()
     async setPassword() {
         this.password = await bcrypt.hash(this.password, 10)
     }
