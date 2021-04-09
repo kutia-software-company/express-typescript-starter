@@ -2,6 +2,7 @@ import { ExpressMiddlewareInterface } from 'routing-controllers'
 import { Service } from 'typedi'
 import * as jwt from 'jsonwebtoken'
 import { appConfig } from '../../../config/app'
+import { ForbiddenException } from '../../exceptions/Application/ForbiddenException'
 
 @Service()
 export class AuthCheck implements ExpressMiddlewareInterface {
@@ -15,7 +16,7 @@ export class AuthCheck implements ExpressMiddlewareInterface {
 
         jwt.verify(token, appConfig.jwtSecret, (err: any, user: any) => {
             if (err) {
-                return response.sendStatus(403)
+                throw new ForbiddenException()
             }
 
             request.loggedUser = user
