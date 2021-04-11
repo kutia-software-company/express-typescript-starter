@@ -1,8 +1,8 @@
 import { Param, Get, JsonController, Post, Body, Put, Delete, HttpCode } from 'routing-controllers'
 import { Service } from 'typedi'
-import { LoginRequest } from '../../requests/Auth/LoginRequest'
-import { LoginService } from '../..//services/Auth/LoginService'
-import { ControllerBase } from '../../../abstracts/ControllerBase'
+import { LoginRequest } from '@api/requests/Auth/LoginRequest'
+import { LoginService } from '@api/services/Auth/LoginService'
+import { ControllerBase } from '@base/abstracts/ControllerBase'
 
 @Service()
 @JsonController('/login')

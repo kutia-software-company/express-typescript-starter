@@ -1,7 +1,7 @@
 import { Query, Resolver } from 'type-graphql'
 import { Service } from 'typedi'
-import { UserService } from '../../services/Users/UserService'
-import { Users } from '../../types/Users/Users'
+import { UserService } from '@api/services/Users/UserService'
+import { Users } from '@api/types/Users/Users'
 
 @Service()
 @Resolver(of => Users)

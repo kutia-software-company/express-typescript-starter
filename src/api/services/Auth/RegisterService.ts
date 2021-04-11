@@ -1,9 +1,9 @@
 import { Service } from 'typedi'
-import { UserRepository } from '../../repositories/Users/UserRepository'
+import { UserRepository } from '@api/repositories/Users/UserRepository'
 import { InjectRepository } from 'typeorm-typedi-extensions'
-import { EventDispatcher, EventDispatcherInterface } from '../../../decorators/EventDispatcher'
+import { EventDispatcher, EventDispatcherInterface } from '@base/decorators/EventDispatcher'
 import * as jwt from 'jsonwebtoken'
-import { appConfig } from '../../../config/app'
+import { appConfig } from '@base/config/app'
 
 @Service()
 export class RegisterService {

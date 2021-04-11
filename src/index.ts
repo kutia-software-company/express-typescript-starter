@@ -1,4 +1,5 @@
 import 'reflect-metadata'
+import ModuleAlias from 'module-alias'
 import { appConfig } from './config/app'
 import { useContainer as routingControllersUseContainer, useExpressServer, getMetadataArgsStorage } from 'routing-controllers'
 import { Container } from 'typedi'
@@ -24,6 +25,7 @@ export class App {
     }
 
     public async bootstrap() {
+        this.registerModuleAlias()
         this.useContainers()
         await this.typeOrmCreateConnection()
         this.registerEvents()
@@ -37,6 +39,13 @@ export class App {
         this.setupGraphQL()
     }
 
+    private registerModuleAlias() {
+        ModuleAlias.addAliases({
+            '@base': __dirname,
+            '@api': __dirname + '/api'
+        })
+    }
+    
     private useContainers() {
         routingControllersUseContainer(Container)
         typeormOrmUseContainer(containerTypeorm)

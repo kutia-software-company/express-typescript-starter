@@ -1,10 +1,10 @@
 import { Param, Get, JsonController, Post, Body, Put, Delete, HttpCode, UseBefore, QueryParams } from 'routing-controllers'
-import { UserService } from '../../services/Users/UserService'
+import { UserService } from '@api/services/Users/UserService'
 import { Service } from 'typedi'
-import { UserCreateRequest } from '../../requests/Users/UserCreateRequest'
-import { AuthCheck } from '../../middlewares/Auth/AuthCheck'
-import { ResourceOptions } from '../../transformers/Application/ResourceOptions'
-import { ControllerBase } from '../../../abstracts/ControllerBase'
+import { UserCreateRequest } from '@api/requests/Users/UserCreateRequest'
+import { AuthCheck } from '@api/middlewares/Auth/AuthCheck'
+import { ResourceOptions } from '@api/transformers/Application/ResourceOptions'
+import { ControllerBase } from '@base/abstracts/ControllerBase'
 
 @Service()
 @JsonController('/users')

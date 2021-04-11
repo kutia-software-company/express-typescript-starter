@@ -1,9 +1,9 @@
 import { Service } from 'typedi'
-import { UserRepository } from '../../repositories/Users/UserRepository'
-import { UserNotFoundException } from '../../exceptions/Users/UserNotFoundException'
-import { appConfig } from '../../../config/app'
+import { UserRepository } from '@api/repositories/Users/UserRepository'
+import { UserNotFoundException } from '@api/exceptions/Users/UserNotFoundException'
+import { appConfig } from '@base/config/app'
 import { InjectRepository } from 'typeorm-typedi-extensions'
-import { InvalidCredentials } from '../../exceptions/Auth/InvalidCredentials'
+import { InvalidCredentials } from '@api/exceptions/Auth/InvalidCredentials'
 import bcrypt from 'bcrypt'
 import * as jwt from 'jsonwebtoken'
 
