@@ -14,7 +14,7 @@ export abstract class QueueJobBase {
     public process() {
         this.queue = new Queue(this.jobName)
         this.queue.add(this.jobName, this.data)
-        const worker = new Worker(this.jobName, async (job: Job) => { this.handle(job) })
+        const worker = new Worker(this.jobName, this.handle)
 
         worker.on('completed', this.onCompleted)
         worker.on('failed', this.onFailed)
