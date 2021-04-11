@@ -1,4 +1,4 @@
-import { Param, Get, JsonController, Post, Body, Put, Delete, HttpCode } from 'routing-controllers'
+import { Get, JsonController, Body } from 'routing-controllers'
 import { Service } from 'typedi'
 import { LoginRequest } from '@api/requests/Auth/LoginRequest'
 import { LoginService } from '@api/services/Auth/LoginService'
@@ -14,7 +14,7 @@ export class LoginController extends ControllerBase {
     }
 
     @Get()
-    public async login(@Body({ validate: true }) user: LoginRequest) {
+    public async login(@Body() user: LoginRequest) {
         return await this.loginService.login(user)
     }
 }
