@@ -1,5 +1,5 @@
 import { EventSubscriber, On } from 'event-dispatch'
-import { SendWelcomeMail } from '../../queue-jobs/Users/SendWelcomeMail'
+import { SendWelcomeMail } from '@api/queue-jobs/Users/SendWelcomeMail'
 
 @EventSubscriber()
 export class UserEventSubscriber {

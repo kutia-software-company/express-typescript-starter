@@ -1,7 +1,7 @@
 import { Service } from 'typedi'
-import { UserRepository } from '../../repositories/Users/UserRepository'
-import { UserNotFoundException } from '../../exceptions/Users/UserNotFoundException'
-import { EventDispatcher, EventDispatcherInterface } from '../../../decorators/EventDispatcher'
+import { UserRepository } from '@api/repositories/Users/UserRepository'
+import { UserNotFoundException } from '@api/exceptions/Users/UserNotFoundException'
+import { EventDispatcher, EventDispatcherInterface } from '@base/decorators/EventDispatcher'
 import { InjectRepository } from 'typeorm-typedi-extensions'
 
 @Service()

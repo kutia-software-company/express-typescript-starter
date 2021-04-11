@@ -1,8 +1,8 @@
 import { Service } from 'typedi'
 import { Get, JsonController, Body } from 'routing-controllers'
-import { RegisterRequest } from '../../requests/Auth/RegisterRequest'
-import { RegisterService } from '../../services/Auth/RegisterService'
-import { ControllerBase } from '../../../abstracts/ControllerBase'
+import { RegisterRequest } from '@api/requests/Auth/RegisterRequest'
+import { RegisterService } from '@api/services/Auth/RegisterService'
+import { ControllerBase } from '@base/abstracts/ControllerBase'
 
 @Service()
 @JsonController('/register')

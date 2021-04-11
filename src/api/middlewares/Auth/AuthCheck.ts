@@ -1,8 +1,8 @@
 import { ExpressMiddlewareInterface } from 'routing-controllers'
 import { Service } from 'typedi'
 import * as jwt from 'jsonwebtoken'
-import { appConfig } from '../../../config/app'
-import { ForbiddenException } from '../../exceptions/Application/ForbiddenException'
+import { appConfig } from '@base/config/app'
+import { ForbiddenException } from '@api/exceptions/Application/ForbiddenException'
 
 @Service()
 export class AuthCheck implements ExpressMiddlewareInterface {
