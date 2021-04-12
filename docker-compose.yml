@@ -3,7 +3,6 @@ version: "3.7"
 services:
     proxy:
         image: nginx:alpine
-        container_name: proxy
         ports:
             - "${PROXY_PORT:-8033}:8033"
         volumes:
@@ -16,7 +15,6 @@ services:
         build:
             context: ./
             dockerfile: docker/Dockerfile.local
-        container_name: web-server
         ports:
             - "${APP_PORT:-3000}:3000"
         volumes:
@@ -30,7 +28,6 @@ services:
 
     mysql:
         image: "mysql:8.0"
-        container_name: mysql
         environment:
             MYSQL_ROOT_PASSWORD: "${TYPEORM_PASSWORD}"
             MYSQL_DATABASE: "${TYPEORM_DATABASE}"
