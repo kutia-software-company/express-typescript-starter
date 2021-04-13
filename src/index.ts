@@ -14,7 +14,7 @@ import { validationMetadatasToSchemas } from 'class-validator-jsonschema'
 import { routingControllersToSpec } from 'routing-controllers-openapi'
 import * as swaggerUiExpress from 'swagger-ui-express'
 import { buildSchema } from 'type-graphql'
-import Helmet from 'helmet'
+import { loadHelmet } from './utils/load-helmet'
 
 export class App {
     private app: express.Application = express()
@@ -45,7 +45,7 @@ export class App {
             '@api': __dirname + '/api'
         })
     }
-    
+
     private useContainers() {
         routingControllersUseContainer(Container)
         typeormOrmUseContainer(containerTypeorm)
@@ -74,7 +74,7 @@ export class App {
     }
 
     private setupMiddlewares() {
-        this.app.use(Helmet())
+        return loadHelmet(this.app)
     }
 
     private registerSocketControllers() {
