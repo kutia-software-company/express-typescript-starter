@@ -117,7 +117,6 @@ Pagination and Sort are implemented on method `getAll` for `Users`, try to send 
 | **src/api/controllers/**          | REST API Controllers |
 | **src/api/responses**             | Response classes or interfaces to type json response bodies  |
 | **src/api/exceptions/**           | Custom HttpErrors like 404 NotFound |
-| **src/api/middlewares/**          | Express Middlewares |
 | **src/api/models/**               | TypeORM Models |
 | **src/api/repositories/**         | Repository / DB layer |
 | **src/api/services/**             | Service layer |
@@ -129,6 +128,7 @@ Pagination and Sort are implemented on method `getAll` for `Users`, try to send 
 | **src/api/types/**                | GraphQL types, input-types and scalar types |
 | **src/api/queue-jobs/**           | Queue Jobs |
 | **src/infrastructure/**           | App Infrastructure |
+| **src/infrastructure/middlewares/** | Express Middlewares |
 | **src/database/factories**        | Factory the generate fake entities |
 | **src/database/migrations**       | Database migration scripts |
 | **src/database/seeds**            | Seeds to create some data in the database |
