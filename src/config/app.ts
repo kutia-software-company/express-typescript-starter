@@ -26,6 +26,7 @@ export const appConfig = {
     controllersDir: env('CONTROLLERS_DIR'),
     cronJobsDir: env('CRON_JOBS_DIR'),
     middlewaresDir: env('MIDDLEWARES_DIR'),
+    eventsDir: env('EVENTS_DIR'),
     subscribersDir: env('SUBSCRIBERS_DIR'),
     resolversDir: env('RESOLVERS_DIR')
 }
