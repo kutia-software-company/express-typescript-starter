@@ -1,5 +1,5 @@
 import { BeforeInsert, BeforeUpdate, Column, Entity, PrimaryGeneratedColumn } from 'typeorm'
-import { EntityBase } from '@base/abstracts/EntityBase'
+import { EntityBase } from '../../../abstracts/EntityBase'
 import { Exclude, Expose } from 'class-transformer'
 import bcrypt from 'bcrypt'
 
