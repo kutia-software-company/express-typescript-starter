@@ -88,8 +88,8 @@ The route prefix is `/api` by default, but you can change this in the .env file.
 
 ### Database Migration
 
-- Run `npm run typeorm:migration:create {name}` to create a new migration file.
-- To migrate your database run `npm run typeorm migration:run`.
+- Run `npm run make:migration {name}` to create a new migration file.
+- To migrate your database run `npm run migrate`.
 
 ### Running Seeders
 
