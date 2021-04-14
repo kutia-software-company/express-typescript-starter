@@ -93,7 +93,7 @@ The route prefix is `/api` by default, but you can change this in the .env file.
 
 ### Running Seeders
 
-- You may execute the `npm run seed:run` command to seed your database.
+- You may execute the `npm run db:seed` command to seed your database.
 
 ### Enable Cron Jobs
 

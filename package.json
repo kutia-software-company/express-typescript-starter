@@ -65,7 +65,7 @@
     "make:migration": "npm run typeorm -- migration:create -n",
     "migrate": "npm run typeorm -- migration:run",
     "seed:config": "ts-node ./node_modules/typeorm-seeding/dist/cli.js config",
-    "seed:run": "ts-node ./node_modules/typeorm-seeding/dist/cli.js seed"
+    "db:seed": "ts-node ./node_modules/typeorm-seeding/dist/cli.js seed"
   },
   "repository": {
     "type": "git",
