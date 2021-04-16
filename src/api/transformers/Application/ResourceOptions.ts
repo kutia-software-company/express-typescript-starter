@@ -146,7 +146,7 @@ export class ResourceOptions {
         return parsedFilters
     }
 
-    getAll(): object {
+    getAll(): { take: number, skip: number, order: object, relations: object, filters: object } {
         return {
             take: this.parseLimit(),
             skip: (this.getPage() > 0 ? this.getPage() - 1 : 0) * this.parseLimit(),
