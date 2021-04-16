@@ -107,6 +107,33 @@ To enable cron jobs you just need to update your env file by set `ENABLE_CRON_JO
 
 Pagination and Sort are implemented on method `getAll` for `Users`, try to send an api like this: `http://localhost:3000/api/users?limit=10&page=1&sortByDesc=id`.
 
+### Filters
+
+The way a filter should be formed is:
+
+```console
+{base_url}/users?filter[columnName][operator][not]=value
+```
+
+* **columnName** -  (Required) - Name of column you want to filter.
+* **operator** - (Optional | Default: `eq`) Type of operator you want to use.
+* **not** - (Optional | Default: `false`) Negate the filter (Accepted values: yes|true|1).
+
+#### Operators
+
+Type | Description
+---- | -----------
+ct | String contains
+sw | Starts with
+ew | Ends with
+eq | Equals
+gt | Greater than
+gte| Greater than or equalTo
+lt | Lesser than
+lte | Lesser than or equalTo
+in | In array
+bt | Between
+
 ### Project Structure
 
 | Name                              | Description |

@@ -17,13 +17,17 @@ export class UserController extends ControllerBase {
     }
 
     @Get()
-    public async getAll(@QueryParams() resourceOptions: ResourceOptions) {
-        return await this.userService.getAll(resourceOptions.getAll())
+    public async getAll(@QueryParams() parseResourceOptions: ResourceOptions) {
+        const resourceOptions: any = parseResourceOptions.getAll()
+
+        return await this.userService.getAll(resourceOptions)
     }
 
     @Get('/:id')
-    public async getOne(@Param('id') id: number, @QueryParams() resourceOptions: ResourceOptions) {
-        return await this.userService.findOneById(id, resourceOptions.getAll())
+    public async getOne(@Param('id') id: number, @QueryParams() parseResourceOptions: ResourceOptions) {
+        const resourceOptions: any = parseResourceOptions.getAll()
+
+        return await this.userService.findOneById(id, resourceOptions)
     }
 
     @Post()
