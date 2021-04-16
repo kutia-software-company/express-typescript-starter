@@ -25,6 +25,8 @@ export abstract class RepositoryBase<T> extends Repository<T>  {
             delete options.offset
         }
 
+        options.where = options.filters
+
         return options
     }
 }
