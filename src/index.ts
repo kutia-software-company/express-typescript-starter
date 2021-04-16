@@ -54,7 +54,11 @@ export class App {
     }
 
     private async typeOrmCreateConnection() {
-        return await createConnection()
+        try {
+            await createConnection()
+        } catch (error) {
+            console.log("Caught! Cannot connect to database: ", error)
+        }
     }
 
     private registerEvents() {
@@ -161,3 +165,7 @@ export class App {
 }
 
 new App
+
+process.on('uncaughtException', function (err) {
+    console.log(err);
+}); 
