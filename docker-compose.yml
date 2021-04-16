@@ -25,6 +25,7 @@ services:
             - backend
         depends_on:
             - mysql
+            - redis
 
     mysql:
         image: "mysql:8.0"
@@ -36,15 +37,30 @@ services:
             MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
         ports:
             - "${FORWARD_DB_PORT:-3306}:3306"
+        volumes:
+            - "backendmysql:/var/lib/mysql"
         networks:
             - backend
         healthcheck:
             test: ["CMD", "mysqladmin", "ping"]
+
+    redis:
+        image: "redis:alpine"
+        ports:
+            - "${FORWARD_REDIS_PORT:-6379}:6379"
+        volumes:
+            - "backendredis:/data"
+        networks:
+            - backend
+        healthcheck:
+            test: ["CMD", "redis-cli", "ping"]
 
 networks:
     backend:
         driver: bridge
 
 volumes:
-    data:
+    backendmysql:
+        driver: local
+    backendredis:
         driver: local
