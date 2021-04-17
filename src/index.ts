@@ -165,7 +165,3 @@ export class App {
 }
 
 new App
-
-process.on('uncaughtException', function (err) {
-    console.log(err);
-}); 
