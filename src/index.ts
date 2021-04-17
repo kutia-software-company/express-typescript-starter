@@ -16,6 +16,7 @@ import { validationMetadatasToSchemas } from 'class-validator-jsonschema'
 import { routingControllersToSpec } from 'routing-controllers-openapi'
 import * as swaggerUiExpress from 'swagger-ui-express'
 import { buildSchema } from 'type-graphql'
+import bodyParser from 'body-parser'
 
 export class App {
     private app: express.Application = express()
@@ -72,7 +73,9 @@ export class App {
     }
 
     private setupMiddlewares() {
-        return loadHelmet(this.app)
+        this.app.use(bodyParser.urlencoded({ extended: true }))
+        this.app.use(bodyParser.json())
+        loadHelmet(this.app)
     }
 
     private registerSocketControllers() {
@@ -91,8 +94,8 @@ export class App {
 
     private registerRoutingControllers() {
         useExpressServer(this.app, {
-            validation: { stopAtFirstError: true },
-            cors: true,
+            validation: true,
+            cors: false,
             classTransformer: true,
             defaultErrorHandler: false,
             routePrefix: appConfig.routePrefix,
