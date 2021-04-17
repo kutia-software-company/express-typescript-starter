@@ -17,6 +17,7 @@ export const appConfig = {
     port: Number(env('APP_PORT')),
     routePrefix: env('APP_ROUTE_PREFIX'),
     jwtSecret: env('JWT_SECRET'),
+    url: env('APP_URL'),
     appPath: getAppPath(),
 
     cronJobsEnabled: toBool(env('ENABLE_CRON_JOBS')),
