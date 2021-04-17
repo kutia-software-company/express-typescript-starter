@@ -5,6 +5,7 @@ import { UserCreateRequest } from '@api/requests/Users/UserCreateRequest'
 import { AuthCheck } from '@base/infrastructure/middlewares/Auth/AuthCheck'
 import { ResourceOptions } from '@api/transformers/Application/ResourceOptions'
 import { ControllerBase } from '@base/abstracts/ControllerBase'
+import { UserUpdateRequest } from '@api/requests/Users/UserUpdateRequest'
 
 @Service()
 @JsonController('/users')
@@ -37,7 +38,7 @@ export class UserController extends ControllerBase {
     }
 
     @Put('/:id')
-    public async update(@Param('id') id: number, @Body() user: any) {
+    public async update(@Param('id') id: number, @Body() user: UserUpdateRequest) {
         return await this.userService.updateOneById(id, user)
     }
 
