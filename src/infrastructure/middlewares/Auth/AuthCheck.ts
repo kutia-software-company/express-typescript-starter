@@ -1,7 +1,7 @@
 import { ExpressMiddlewareInterface } from 'routing-controllers'
 import { Service } from 'typedi'
 import * as jwt from 'jsonwebtoken'
-import { appConfig } from '../../../config/app'
+import { appConfig } from '@base/config/app'
 import { Response } from 'express'
 
 @Service()

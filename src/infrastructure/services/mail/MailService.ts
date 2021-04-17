@@ -1,10 +1,10 @@
-import { mailConfig } from '../../../config/mail'
+import { mailConfig } from '@base/config/mail'
 import { Service } from 'typedi'
 import { SmtpProvider } from './Providers/SmtpProvider'
 import { MailInterface } from './Interfaces/MailInterface'
 
 @Service()
-export class MailSender implements MailInterface {
+export class MailService implements MailInterface {
     private provider: any
 
     public constructor() {

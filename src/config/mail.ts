@@ -1,4 +1,4 @@
-import { env } from '../utils/env';
+import { env } from '@base/utils/env';
 
 export const mailConfig = {
     provider: env('MAIL_PROVIDER'),

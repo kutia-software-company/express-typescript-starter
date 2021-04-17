@@ -1,5 +1,5 @@
 import * as nodeMailer from 'nodemailer'
-import { mailConfig } from '../../../../config/mail'
+import { mailConfig } from '@base/config/mail'
 
 export class SmtpProvider {
     private transporter: nodeMailer.Transporter

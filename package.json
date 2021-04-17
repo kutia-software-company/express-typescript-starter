@@ -61,11 +61,11 @@
     "dev": "NODE_ENV=development ./node_modules/.bin/nodemon --exec './node_modules/.bin/ts-node' src/index.ts",
     "start": "NODE_ENV=production node ./dist/index.js",
     "build": "tsc --project ./",
-    "typeorm": "./node_modules/.bin/ts-node ./node_modules/.bin/typeorm",
+    "typeorm": "ts-node -r ./fix-module-alias.js ./node_modules/.bin/typeorm",
     "make:migration": "npm run typeorm -- migration:create -n",
     "migrate": "npm run typeorm -- migration:run",
-    "seed:config": "ts-node ./node_modules/typeorm-seeding/dist/cli.js config",
-    "db:seed": "ts-node ./node_modules/typeorm-seeding/dist/cli.js seed"
+    "seed:config": "ts-node -r ./fix-module-alias.js ./node_modules/typeorm-seeding/dist/cli.js config",
+    "db:seed": "ts-node -r ./fix-module-alias.js ./node_modules/typeorm-seeding/dist/cli.js seed"
   },
   "repository": {
     "type": "git",

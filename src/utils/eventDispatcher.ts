@@ -1,5 +1,5 @@
 import glob from 'glob'
-import { appConfig } from '../config/app'
+import { appConfig } from '@base/config/app'
 
 /**
  * This loads all the created subscribers into the project, so we do not have to import them manually.

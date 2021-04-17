@@ -1,11 +1,13 @@
 import 'reflect-metadata'
-import ModuleAlias from 'module-alias'
-import { appConfig } from './config/app'
+import { fixModuleAlias } from './fix-module-alias'
+fixModuleAlias()
+import { appConfig } from '@base/config/app'
+import { eventDispatcher } from '@base/utils/eventDispatcher'
 import { useContainer as routingControllersUseContainer, useExpressServer, getMetadataArgsStorage } from 'routing-controllers'
+import { loadHelmet } from '@base/utils/load-helmet'
 import { Container } from 'typedi'
 import { createConnection, useContainer as typeormOrmUseContainer } from 'typeorm'
 import { Container as containerTypeorm } from 'typeorm-typedi-extensions'
-import { eventDispatcher } from './utils/eventDispatcher'
 import { useSocketServer, useContainer as socketUseContainer } from 'socket-controllers'
 import { registerController as registerCronJobs, useContainer as cronUseContainer } from 'cron-decorators'
 import * as path from 'path'
@@ -14,7 +16,6 @@ import { validationMetadatasToSchemas } from 'class-validator-jsonschema'
 import { routingControllersToSpec } from 'routing-controllers-openapi'
 import * as swaggerUiExpress from 'swagger-ui-express'
 import { buildSchema } from 'type-graphql'
-import { loadHelmet } from './utils/load-helmet'
 
 export class App {
     private app: express.Application = express()
@@ -25,7 +26,6 @@ export class App {
     }
 
     public async bootstrap() {
-        this.registerModuleAlias()
         this.useContainers()
         await this.typeOrmCreateConnection()
         this.registerEvents()
@@ -37,13 +37,6 @@ export class App {
         this.registerDefaultHomePage()
         this.setupSwagger()
         this.setupGraphQL()
-    }
-
-    private registerModuleAlias() {
-        ModuleAlias.addAliases({
-            '@base': __dirname,
-            '@api': __dirname + '/api'
-        })
     }
 
     private useContainers() {
