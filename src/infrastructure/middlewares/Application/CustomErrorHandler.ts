@@ -24,11 +24,13 @@ export class CustomErrorHandler implements ExpressErrorMiddlewareInterface {
         // Class validator handle errors
         if (responseObject.status == 400) {
             let validatorErrors = {} as any
-            error.errors.forEach((element: any) => {
-                if (element.property && element.constraints) {
-                    validatorErrors[element.property] = element.constraints
-                }
-            })
+            if (typeof error === 'object' && error.hasOwnProperty('errors')) {
+                error.errors.forEach((element: any) => {
+                    if (element.property && element.constraints) {
+                        validatorErrors[element.property] = element.constraints
+                    }
+                })
+            }
             responseObject.errors = validatorErrors
         }
 
