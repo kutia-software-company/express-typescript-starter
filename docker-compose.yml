@@ -1,20 +1,10 @@
 version: "3.7"
 
 services:
-    proxy:
-        image: nginx:alpine
-        ports:
-            - "${PROXY_PORT:-8033}:8033"
-        volumes:
-            - ./docker/nginx.conf:/etc/nginx/nginx.conf
-        restart: "unless-stopped"
-        networks:
-            - backend
-
     server:
         build:
             context: ./
-            dockerfile: docker/Dockerfile.local
+            target: development-build-stage
         ports:
             - "${APP_PORT:-3000}:3000"
         volumes:
