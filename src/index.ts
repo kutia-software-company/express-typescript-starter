@@ -35,6 +35,7 @@ export class App {
         this.registerSocketControllers()
         this.registerRoutingControllers()
         this.registerDefaultHomePage()
+        this.register404Page()
         this.setupSwagger()
         this.setupGraphQL()
     }
@@ -103,6 +104,12 @@ export class App {
     private registerDefaultHomePage() {
         this.app.get('/', (req, res) => {
             res.json({ title: appConfig.name, mode: appConfig.node, date: new Date() })
+        })
+    }
+
+    private register404Page() {
+        this.app.get('*', function (req, res) {
+            res.status(404).send({ 'status': 404, 'message': 'Page Not Found!' })
         })
     }
 
