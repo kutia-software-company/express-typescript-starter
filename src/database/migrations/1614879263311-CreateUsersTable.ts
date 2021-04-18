@@ -6,33 +6,11 @@ export class CreateUsersTable1614879263311 implements MigrationInterface {
         const table = new Table({
             name: 'users',
             columns: [
-                {
-                    name: 'id',
-                    type: 'int',
-                    isPrimary: true,
-                    isGenerated: true,
-                    generationStrategy: 'increment'
-                },
-                {
-                    name: 'first_name',
-                    type: 'varchar',
-                    length: '191'
-                },
-                {
-                    name: 'last_name',
-                    type: 'varchar',
-                    length: '191'
-                },
-                {
-                    name: 'email',
-                    type: 'varchar',
-                    length: '191'
-                },
-                {
-                    name: 'password',
-                    type: 'varchar',
-                    length: '191'
-                }
+                { name: 'id', type: 'int', isPrimary: true, isGenerated: true, generationStrategy: 'increment' },
+                { name: 'first_name', type: 'varchar', length: '191' },
+                { name: 'last_name', type: 'varchar', length: '191' },
+                { name: 'email', type: 'varchar', length: '191' },
+                { name: 'password', type: 'varchar', length: '191' }
             ]
         })
 
