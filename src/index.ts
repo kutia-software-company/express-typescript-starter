@@ -36,9 +36,9 @@ export class App {
         this.registerSocketControllers()
         this.registerRoutingControllers()
         this.registerDefaultHomePage()
-        this.register404Page()
         this.setupSwagger()
         this.setupGraphQL()
+        this.register404Page()
     }
 
     private useContainers() {
