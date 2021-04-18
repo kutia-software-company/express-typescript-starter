@@ -22,4 +22,3 @@ export class StorageService {
         return this.disk.createDirectory(dir)
     }
 }
-
