@@ -15,8 +15,12 @@ export abstract class RepositoryBase<T> extends Repository<T>  {
         return await this.findOne({ where: { id: id }, ...this.applyResourceOptions(resourceOptions) })
     }
 
+    public async findOneInRandomOrder() {
+        return await this.createQueryBuilder().orderBy("RAND()").getOne()
+    }
+
     protected applyResourceOptions(options: any) {
-        if(!options) {
+        if (!options) {
             return
         }
 
