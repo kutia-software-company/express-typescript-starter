@@ -6,8 +6,12 @@ import { AuthCheck } from '@base/infrastructure/middlewares/Auth/AuthCheck'
 import { ResourceOptions } from '@api/transformers/Application/ResourceOptions'
 import { ControllerBase } from '@base/abstracts/ControllerBase'
 import { UserUpdateRequest } from '@api/requests/Users/UserUpdateRequest'
+import { OpenAPI } from 'routing-controllers-openapi'
 
 @Service()
+@OpenAPI({
+    security: [{ bearerAuth: [] }]
+})
 @JsonController('/users')
 @UseBefore(AuthCheck)
 export class UserController extends ControllerBase {

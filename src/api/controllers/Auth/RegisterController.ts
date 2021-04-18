@@ -1,10 +1,14 @@
 import { Service } from 'typedi'
-import { Get, JsonController, Body } from 'routing-controllers'
+import { JsonController, Body, Post } from 'routing-controllers'
 import { RegisterRequest } from '@api/requests/Auth/RegisterRequest'
 import { RegisterService } from '@api/services/Auth/RegisterService'
 import { ControllerBase } from '@base/abstracts/ControllerBase'
+import { OpenAPI } from 'routing-controllers-openapi'
 
 @Service()
+@OpenAPI({
+    tags: ['Auth']
+})
 @JsonController('/register')
 export class RegisterController extends ControllerBase {
     public constructor(
@@ -13,7 +17,7 @@ export class RegisterController extends ControllerBase {
         super()
     }
 
-    @Get()
+    @Post()
     public async register(@Body() user: RegisterRequest) {
         return await this.registerService.register(user)
     }
