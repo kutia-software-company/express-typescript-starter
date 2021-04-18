@@ -124,13 +124,14 @@ export class App {
 
         // Parse routing-controllers classes into OpenAPI spec:
         const storage = getMetadataArgsStorage()
-        const spec = routingControllersToSpec(storage, {}, {
+        const spec = routingControllersToSpec(storage, { routePrefix: appConfig.routePrefix }, {
             components: {
                 schemas,
                 securitySchemes: {
-                    basicAuth: {
-                        scheme: 'basic',
+                    bearerAuth: {
                         type: 'http',
+                        scheme: 'bearer',
+                        bearerFormat: 'JWT'
                     },
                 }
             },
@@ -138,6 +139,11 @@ export class App {
                 description: 'Welcome to the club!',
                 title: 'API Documentation',
                 version: '1.0.0',
+                contact: {
+                    "name": "Kutia",
+                    "url": "https://kutia.net",
+                    "email": "support@kutia.net"
+                }
             }
         })
 
