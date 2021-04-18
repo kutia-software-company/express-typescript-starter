@@ -37,7 +37,7 @@ export class App {
         this.registerRoutingControllers()
         this.registerDefaultHomePage()
         this.setupSwagger()
-        this.setupGraphQL()
+        await this.setupGraphQL()
         this.register404Page()
     }
 
