@@ -103,6 +103,15 @@ To enable cron jobs you just need to update your env file by set `ENABLE_CRON_JO
 
 - `return await (new MailSender).text('Hello').to('example@gmail.com').send()`.
 
+### Upload File
+
+```ts
+@Put('/:id')
+public async update(@Param('id') id: number, @UploadedFile('file') file: Express.Multer.File) {
+    return await (new StorageService).put(file.originalname, file.buffer)
+}
+```
+
 ### Pagination & Sort
 
 Pagination and Sort are implemented on method `getAll` for `Users`, try to send an api like this: `http://localhost:3000/api/users?limit=10&page=1&sortByDesc=id`.
