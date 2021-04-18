@@ -9,8 +9,6 @@ export default class CreateRoles implements Seeder {
             { name: 'Client' }
         ];
 
-        console.log(  )
-
         for (const [key, value] of Object.entries(roles)) {
             const role = await connection.getCustomRepository(RoleRepository).findOne({ where: { name: value.name } });
 
