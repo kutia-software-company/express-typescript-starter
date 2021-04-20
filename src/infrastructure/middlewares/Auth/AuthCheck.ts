@@ -1,7 +1,7 @@
 import { ExpressMiddlewareInterface } from 'routing-controllers'
 import { Service } from 'typedi'
 import * as jwt from 'jsonwebtoken'
-import { appConfig } from '@base/config/app'
+import { authConfig } from '@base/config/auth'
 import { Response } from 'express'
 
 @Service()
@@ -14,7 +14,7 @@ export class AuthCheck implements ExpressMiddlewareInterface {
 
         const token = authHeader.split(' ')[1]
 
-        jwt.verify(token, appConfig.jwtSecret, (err: any, user: any) => {
+        jwt.verify(token, authConfig.providers.jwt.secret, (err: any, user: any) => {
             if (err) {
                 return response.status(403).send({ 'status': 403, 'message': 'Forbidden!' })
             }

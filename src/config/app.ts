@@ -16,7 +16,6 @@ export const appConfig = {
     name: env('APP_NAME'),
     port: Number(env('APP_PORT')),
     routePrefix: env('APP_ROUTE_PREFIX'),
-    jwtSecret: env('JWT_SECRET'),
     url: env('APP_URL'),
     appPath: getAppPath(),
 

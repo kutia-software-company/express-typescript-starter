@@ -1,48 +1,35 @@
 import { Service } from 'typedi'
 import { UserRepository } from '@api/repositories/Users/UserRepository'
-import { UserNotFoundException } from '@api/exceptions/Users/UserNotFoundException'
-import { appConfig } from '@base/config/app'
 import { InjectRepository } from 'typeorm-typedi-extensions'
 import { InvalidCredentials } from '@api/exceptions/Auth/InvalidCredentials'
 import bcrypt from 'bcrypt'
-import * as jwt from 'jsonwebtoken'
+import { AuthService } from '@base/infrastructure/services/auth/AuthService'
+import { LoginRequest } from '@base/api/requests/Auth/LoginRequest'
 
 @Service()
 export class LoginService {
-    private jstExpiresIn = '24h'
-
     constructor(
-        @InjectRepository() private userRepository: UserRepository
+        @InjectRepository() private userRepository: UserRepository,
+        private authService: AuthService
     ) {
         //
     }
 
-    public async login(user: any) {
-        let userFinded = await this.getRequestedUserByEmailOrFail(user.email)
-
-        if (!await this.comparePassword(user.password, userFinded.password)) {
-            throw new InvalidCredentials
-        }
-
-        return this.jwt({ userId: userFinded.id, email: userFinded.email }, { user: { id: userFinded.id, email: userFinded.email } })
-    }
-
-    private async getRequestedUserByEmailOrFail(email: string) {
-        let user = await this.userRepository.findOne({ where: { email: email } })
+    public async login(data: LoginRequest) {
+        let user = await this.userRepository.findOne({ where: { email: data.email }, relations: ['role'] })
 
         if (!user) {
-            throw new UserNotFoundException
+            throw new InvalidCredentials()
         }
 
-        return user
-    }
-
-    private async jwt(payload: object, dataReturn?: object) {
-        return {
-            ...dataReturn,
-            access_token: jwt.sign(payload, appConfig.jwtSecret, { expiresIn: this.jstExpiresIn }),
-            expires_in: this.jstExpiresIn
+        if (!await this.comparePassword(data.password, user.password)) {
+            throw new InvalidCredentials()
         }
+
+        return this.authService.sign(
+            { userId: user.id, email: user.email, role_id: user.role_id, role: user.role.name },
+            { user: { id: user.id, email: user.email, role: user.role.name } }
+        )
     }
 
     private async comparePassword(attempt: string, password: any) {

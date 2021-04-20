@@ -16,9 +16,18 @@ export class CreateUsersTable1618771301779 implements MigrationInterface {
         });
 
         await queryRunner.createTable(table);
+
+        await queryRunner.createForeignKey('users', new TableForeignKey({
+            columnNames: ['role_id'],
+            referencedTableName: 'roles',
+            referencedColumnNames: ['id'],
+            onUpdate: 'CASCADE',
+            onDelete: 'CASCADE'
+        }));
     }
 
     public async down(queryRunner: QueryRunner): Promise<void> {
+        await queryRunner.dropTable('users');
     }
 
 }
