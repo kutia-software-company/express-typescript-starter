@@ -2,33 +2,28 @@ import { Service } from 'typedi'
 import { UserRepository } from '@api/repositories/Users/UserRepository'
 import { InjectRepository } from 'typeorm-typedi-extensions'
 import { EventDispatcher, EventDispatcherInterface } from '@base/decorators/EventDispatcher'
-import * as jwt from 'jsonwebtoken'
-import { appConfig } from '@base/config/app'
+import { AuthService } from '@base/infrastructure/services/auth/AuthService'
 
 @Service()
 export class RegisterService {
-    private jstExpiresIn = '24h'
-
     constructor(
         @InjectRepository() private userRepository: UserRepository,
-        @EventDispatcher() private eventDispatcher: EventDispatcherInterface
+        @EventDispatcher() private eventDispatcher: EventDispatcherInterface,
+        private authService: AuthService
     ) {
         //
     }
 
     public async register(data: object) {
-        let user = await this.userRepository.save(this.userRepository.create(data))
+        let user = await this.userRepository.createUser(data)
+
+        user = await this.userRepository.findOne({ where: { id: user.id }, relations: ['role'] })
 
         this.eventDispatcher.dispatch('onUserRegister', user)
 
-        return this.jwt({ userId: user.id, email: user.email }, { user: { id: user.id, email: user.email } })
-    }
-
-    private async jwt(payload: object, dataReturn?: object) {
-        return {
-            ...dataReturn,
-            access_token: jwt.sign(payload, appConfig.jwtSecret, { expiresIn: this.jstExpiresIn }),
-            expires_in: this.jstExpiresIn
-        }
+        return this.authService.sign(
+            { userId: user.id, email: user.email, role_id: user.role_id, role: user.role.name },
+            { user: { id: user.id, email: user.email, role: user.role.name } }
+        )
     }
 }
