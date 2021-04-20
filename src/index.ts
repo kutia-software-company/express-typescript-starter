@@ -38,7 +38,7 @@ export class App {
         this.registerDefaultHomePage()
         this.setupSwagger()
         await this.setupGraphQL()
-        this.register404Page()
+        // this.register404Page()
     }
 
     private useContainers() {
