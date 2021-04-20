@@ -9,7 +9,7 @@ export class AuthCheck implements ExpressMiddlewareInterface {
     use(request: any, response: Response, next?: (err?: any) => any): any {
         const authHeader = request.headers.authorization
         if (!authHeader) {
-            return response.sendStatus(401)
+            return response.status(401).send({ 'status': 403, 'message': 'Unauthorized!' })
         }
 
         const token = authHeader.split(' ')[1]
