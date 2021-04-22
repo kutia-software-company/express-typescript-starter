@@ -92,6 +92,38 @@ export class RequestQueryParser {
                     sqlOperator = (not) ? 'NOT !=' : '='
                     break
 
+                // Starts with
+                case 'sw':
+                    value = value + '%'
+                    sqlOperator = (not) ? 'NOT LIKE' : 'LIKE'
+                    break
+
+                // Ends with
+                case 'ew':
+                    value = '%' + value
+                    sqlOperator = (not) ? 'NOT LIKE' : 'LIKE'
+                    break
+
+                // Greater than
+                case 'gt':
+                    sqlOperator = (not) ? '<' : '>'
+                    break
+
+                // Greater than or equalTo
+                case 'gte':
+                    sqlOperator = (not) ? '<' : '>='
+                    break
+
+                // Lesser than or equalTo
+                case 'lte':
+                    sqlOperator = (not) ? '>' : '<='
+                    break
+
+                // Lesser than
+                case 'lt':
+                    sqlOperator = (not) ? '>' : '<'
+                    break
+
                 default:
                     break;
             }
