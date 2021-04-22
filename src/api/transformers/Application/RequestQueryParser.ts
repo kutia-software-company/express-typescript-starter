@@ -42,7 +42,7 @@ export class RequestQueryParser {
         return list
     }
 
-    parseRelations(): object {
+    parseRelations(): string[] {
         if (isEmpty(this.relations) && isEmpty(this.relations)) {
             return []
         }
@@ -50,7 +50,7 @@ export class RequestQueryParser {
         return this.relations.split(',')
     }
 
-    parseFilters(): object {
+    parseFilters(): object[] {
         let filters = this.filter
         let parsedFilters: any = []
 
@@ -134,7 +134,7 @@ export class RequestQueryParser {
         return parsedFilters
     }
 
-    getAll(): { take: number, skip: number, order: object, relations: object, filters: object } {
+    getAll(): { take: number, skip: number, order: object, relations: string[], filters: object[] } {
         return {
             take: this.parseLimit(),
             skip: (this.getPage() > 0 ? this.getPage() - 1 : 0) * this.parseLimit(),
