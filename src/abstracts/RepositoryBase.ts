@@ -22,7 +22,7 @@ export abstract class RepositoryBase<T> extends Repository<T>  {
     }
 
     public async getManyAndCount(resourceOptions?: object) {
-        const alias: string = 'users'
+        const alias: string = (<any>this).constructor.name
 
         const queryBuilder = this.createQueryBuilder(alias)
 
