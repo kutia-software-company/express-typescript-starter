@@ -13,7 +13,7 @@ export class UserService {
     }
 
     public async getAll(resourceOptions?: object) {
-        return await this.userRepository.findAndCountRaw(resourceOptions)
+        return await this.userRepository.getManyAndCount(resourceOptions);
     }
 
     public async findOneById(id: number, resourceOptions?: object) {
@@ -39,10 +39,10 @@ export class UserService {
     }
 
     private async getRequestedUserOrFail(id: number, resourceOptions?: object) {
-        let user = await this.userRepository.findOneByIdRaw(id, resourceOptions)
+        let user = await this.userRepository.getOneById(id, resourceOptions)
 
         if (!user) {
-            throw new UserNotFoundException
+            throw new UserNotFoundException()
         }
 
         return user

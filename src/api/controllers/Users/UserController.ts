@@ -3,10 +3,10 @@ import { UserService } from '@api/services/Users/UserService'
 import { Service } from 'typedi'
 import { UserCreateRequest } from '@api/requests/Users/UserCreateRequest'
 import { AuthCheck } from '@base/infrastructure/middlewares/Auth/AuthCheck'
-import { ResourceOptions } from '@api/transformers/Application/ResourceOptions'
 import { ControllerBase } from '@base/abstracts/ControllerBase'
 import { UserUpdateRequest } from '@api/requests/Users/UserUpdateRequest'
 import { OpenAPI } from 'routing-controllers-openapi'
+import { RequestQueryParser } from '@base/api/transformers/Application/RequestQueryParser'
 
 @Service()
 @OpenAPI({
@@ -22,15 +22,15 @@ export class UserController extends ControllerBase {
     }
 
     @Get()
-    public async getAll(@QueryParams() parseResourceOptions: ResourceOptions) {
-        const resourceOptions: any = parseResourceOptions.getAll()
+    public async getAll(@QueryParams() parseResourceOptions: RequestQueryParser) {
+        const resourceOptions = parseResourceOptions.getAll()
 
         return await this.userService.getAll(resourceOptions)
     }
 
     @Get('/:id')
-    public async getOne(@Param('id') id: number, @QueryParams() parseResourceOptions: ResourceOptions) {
-        const resourceOptions: any = parseResourceOptions.getAll()
+    public async getOne(@Param('id') id: number, @QueryParams() parseResourceOptions: RequestQueryParser) {
+        const resourceOptions = parseResourceOptions.getAll()
 
         return await this.userService.findOneById(id, resourceOptions)
     }
