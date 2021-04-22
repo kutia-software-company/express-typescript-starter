@@ -41,6 +41,21 @@ export abstract class RepositoryBase<T> extends Repository<T>  {
             return
         }
 
+        if (options.order) {
+            for (const [sort, order] of Object.entries(options.order)) {
+                var sortSplited = sort.split(/\.(?=[^\.]+$)/)
+                let whatToSort = ''
+
+                if (!sort.includes('.')) {
+                    whatToSort = alias + '.' + sort
+                } else {
+                    whatToSort = alias + '_' + sortSplited[0].split('.').join('_') + '.' + sortSplited[1]
+                }
+
+                queryBuilder.addOrderBy(whatToSort, options.order[sort].order)
+            }
+        }
+
         if (options.take) {
             queryBuilder.take(options.take)
         }
