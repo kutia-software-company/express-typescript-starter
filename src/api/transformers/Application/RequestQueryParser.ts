@@ -124,6 +124,12 @@ export class RequestQueryParser {
                     sqlOperator = (not) ? '>' : '<'
                     break
 
+                // In array    
+                case 'in':
+                    value  = value.split(',')
+                    sqlOperator = (not) ? 'NOT IN' : 'IN'
+                    break
+
                 default:
                     break;
             }

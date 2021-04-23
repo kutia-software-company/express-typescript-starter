@@ -98,9 +98,9 @@ export abstract class RepositoryBase<T> extends Repository<T>  {
                     }
 
                     if (index == 0) {
-                        qb.where(`${whatToFilter} ${sqlOperator} :value` + index, { ['value' + index]: element.value })
+                        qb.where(`${whatToFilter} ${sqlOperator} (:value` + `${index})`, { ['value' + index]: element.value })
                     } else {
-                        qb.andWhere(`${whatToFilter} ${sqlOperator} :value` + index, { ['value' + index]: element.value })
+                        qb.andWhere(`${whatToFilter} ${sqlOperator} (:value` + `${index})`, { ['value' + index]: element.value })
                     }
                 }
             }))
