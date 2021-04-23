@@ -86,19 +86,19 @@ export abstract class RepositoryBase<T> extends Repository<T>  {
         if (options.filters) {
             queryBuilder.where(new Brackets(qb => {
                 for (let index = 0; index < options.filters.length; index++) {
+
                     const element = options.filters[index]
-                    var elementSplited = element.column.split(/\.(?=[^\.]+$)/)
+                    let elementSplited = element.column.split(/\.(?=[^\.]+$)/)
                     let sqlOperator = element.sqlOperator
                     let whatToFilter = ''
+                    let whereQuery = ''
+                    let queryValues: any = {}
 
                     if (!element.column.includes('.')) {
                         whatToFilter = alias + '.' + element.column
                     } else {
                         whatToFilter = alias + '_' + elementSplited[0].split('.').join('_') + '.' + elementSplited[1]
                     }
-
-                    let whereQuery = ''
-                    let queryValues: any = {}
 
                     if (sqlOperator == 'BETWEEN') {
                         let keys = Object.keys(element.value)
