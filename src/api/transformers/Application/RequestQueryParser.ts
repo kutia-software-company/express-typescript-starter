@@ -1,7 +1,6 @@
 import { isEmpty } from 'class-validator'
-import { Between, Equal, In, LessThan, LessThanOrEqual, Like, MoreThan, MoreThanOrEqual, Not } from 'typeorm'
 
-export class ResourceOptions {
+export class RequestQueryParser {
     limit: number
     page: number
     sortByDesc: any
@@ -43,24 +42,24 @@ export class ResourceOptions {
         return list
     }
 
-    parseRelations(): object {
+    parseRelations(): string[] {
         if (isEmpty(this.relations) && isEmpty(this.relations)) {
             return []
         }
-
+        
         return this.relations.split(',')
     }
 
-    parseFilters(): object {
+    parseFilters(): object[] {
         let filters = this.filter
-        let parsedFilters: any = {}
+        let parsedFilters: any = []
 
         for (let filter in filters) {
             let myObj = filters[filter]
             let value: any = null
             let operator: string = 'eq'
             let not: boolean = false
-            let filterValue = null
+            let sqlOperator = null
 
             if (typeof myObj === 'string' || myObj instanceof String) {
                 value = myObj
@@ -84,69 +83,58 @@ export class ResourceOptions {
                 // String contains
                 case 'ct':
                     value = '%' + value + '%'
-                    filterValue = (not) ? Not(Like(value)) : Like(value)
+                    sqlOperator = (not) ? 'NOT LIKE' : 'LIKE'
+                    break
+
+                // Equals
+                case 'eq':
+                    value = value
+                    sqlOperator = (not) ? 'NOT !=' : '='
                     break
 
                 // Starts with
                 case 'sw':
                     value = value + '%'
-                    filterValue = (not) ? Not(Like(value)) : Like(value)
+                    sqlOperator = (not) ? 'NOT LIKE' : 'LIKE'
                     break
 
                 // Ends with
                 case 'ew':
                     value = '%' + value
-                    filterValue = (not) ? Not(Like(value)) : Like(value)
-                    break
-
-                // Equals
-                case 'eq':
-                    filterValue = (not) ? Not(Equal(value)) : Equal(value)
+                    sqlOperator = (not) ? 'NOT LIKE' : 'LIKE'
                     break
 
                 // Greater than
                 case 'gt':
-                    filterValue = (not) ? Not(MoreThan(Number(value))) : MoreThan(Number(value))
+                    sqlOperator = (not) ? '<' : '>'
                     break
 
                 // Greater than or equalTo
                 case 'gte':
-                    filterValue = (not) ? Not(MoreThanOrEqual(Number(value))) : MoreThanOrEqual(Number(value))
+                    sqlOperator = (not) ? '<' : '>='
                     break
 
                 // Lesser than or equalTo
                 case 'lte':
-                    filterValue = (not) ? Not(LessThanOrEqual(Number(value))) : LessThanOrEqual(Number(value))
+                    sqlOperator = (not) ? '>' : '<='
                     break
 
                 // Lesser than
                 case 'lt':
-                    filterValue = (not) ? Not(LessThan(Number(value))) : LessThan(Number(value))
-                    break
-
-                // In array
-                case 'in':
-                    filterValue = (not) ? Not(In(value.split(','))) : In(value.split(','))
-                    break
-
-                // Between
-                case 'bt':
-                    let firstValue = (value.split(',')[0])
-                    let secondValue = (value.split(',')[1])
-                    filterValue = (not) ? Not(Between(firstValue, secondValue)) : Between(firstValue, secondValue)
+                    sqlOperator = (not) ? '>' : '<'
                     break
 
                 default:
                     break;
             }
 
-            parsedFilters[filter] = filterValue
+            parsedFilters.push({ column: filter, operator: operator, sqlOperator: sqlOperator, not: not, value: value })
         }
 
         return parsedFilters
     }
 
-    getAll(): { take: number, skip: number, order: object, relations: object, filters: object } {
+    getAll(): { take: number, skip: number, order: object, relations: string[], filters: object[] } {
         return {
             take: this.parseLimit(),
             skip: (this.getPage() > 0 ? this.getPage() - 1 : 0) * this.parseLimit(),
