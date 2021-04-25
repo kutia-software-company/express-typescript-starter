@@ -1,12 +1,12 @@
-import { env } from '@base/utils/env'
-import { appConfig } from './app'
+import { env } from '@base/utils/env';
+import { appConfig } from './app';
 
 export const fileSystemsConfig = {
-    defaultDisk: env('FILESYSTEM_DEFAULT_DISK', 'local'),
+  defaultDisk: env('FILESYSTEM_DEFAULT_DISK', 'local'),
 
-    disks: {
-        local: {
-            root: appConfig.appPath + '/public/uploads'
-        }
-    }
-}
+  disks: {
+    local: {
+      root: appConfig.appPath + '/public/uploads',
+    },
+  },
+};
