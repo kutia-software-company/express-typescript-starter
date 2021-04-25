@@ -86,10 +86,13 @@ export abstract class RepositoryBase<T> extends Repository<T>  {
         if (options.filters) {
             queryBuilder.where(new Brackets(qb => {
                 for (let index = 0; index < options.filters.length; index++) {
+
                     const element = options.filters[index]
-                    var elementSplited = element.column.split(/\.(?=[^\.]+$)/)
+                    let elementSplited = element.column.split(/\.(?=[^\.]+$)/)
                     let sqlOperator = element.sqlOperator
                     let whatToFilter = ''
+                    let whereQuery = ''
+                    let queryValues: any = {}
 
                     if (!element.column.includes('.')) {
                         whatToFilter = alias + '.' + element.column
@@ -97,10 +100,30 @@ export abstract class RepositoryBase<T> extends Repository<T>  {
                         whatToFilter = alias + '_' + elementSplited[0].split('.').join('_') + '.' + elementSplited[1]
                     }
 
-                    if (index == 0) {
-                        qb.where(`${whatToFilter} ${sqlOperator} :value` + index, { ['value' + index]: element.value })
+                    if (sqlOperator == 'BETWEEN') {
+                        let keys = Object.keys(element.value)
+                        let query = ''
+
+                        for (let i = 0; i < keys.length; i++) {
+                            let uniqueKey = `${i}${index}`
+
+                            if (i != 0)
+                                query += ' AND'
+                            query += ' :value' + uniqueKey
+
+                            queryValues['value' + uniqueKey] = element.value[i]
+                        }
+
+                        whereQuery = `${whatToFilter} ${sqlOperator} ` + query
                     } else {
-                        qb.andWhere(`${whatToFilter} ${sqlOperator} :value` + index, { ['value' + index]: element.value })
+                        whereQuery = `${whatToFilter} ${sqlOperator} (:value` + `${index})`
+                        queryValues = { ['value' + index]: element.value }
+                    }
+
+                    if (index == 0) {
+                        qb.where(whereQuery, queryValues)
+                    } else {
+                        qb.andWhere(whereQuery, queryValues)
                     }
                 }
             }))
