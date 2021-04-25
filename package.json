@@ -71,6 +71,7 @@
     "migrate": "npm run typeorm -- migration:run",
     "seed:config": "ts-node -r ./fix-module-alias.js ./node_modules/typeorm-seeding/dist/cli.js config",
     "db:seed": "ts-node -r ./fix-module-alias.js ./node_modules/typeorm-seeding/dist/cli.js seed",
+    "db:seed:production": "NODE_ENV=production ts-node -r ./fix-module-alias.js ./node_modules/typeorm-seeding/dist/cli.js seed",
     "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
     "lint": "tslint -p tsconfig.json"
   },
