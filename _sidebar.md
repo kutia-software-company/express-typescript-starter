@@ -1,5 +1,5 @@
 - Getting started
-  - [Introduction](pages/getting-started/introduction)
+  - [Introduction](pages/getting-started/introduction.md)
   - [Quick start](pages/getting-started/quick-start.md)
   - [Installation](pages/getting-started/installation.md)
   - [Project structure](pages/getting-started/project-structure.md)
