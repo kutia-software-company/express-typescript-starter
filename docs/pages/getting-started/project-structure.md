@@ -1,7 +1,4 @@
----
-title: Project Structure
-slug: /project-structure
----
+# Project Structure
 
 | Name                              | Description |
 | --------------------------------- | ----------- |

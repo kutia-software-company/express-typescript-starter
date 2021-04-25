@@ -1,7 +1,4 @@
----
-title: Middlewares
-slug: /middlewares
----
+# Middlewares
 
 You can use any existing express middleware, or create your own.
 To create your middlewares there is a `@Middleware` decorator,

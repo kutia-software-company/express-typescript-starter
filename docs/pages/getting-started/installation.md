@@ -1,7 +1,4 @@
----
-title: Installation
-slug: /installation
----
+# Installation
 
 #### Step 1: Set up the Development Environment
 

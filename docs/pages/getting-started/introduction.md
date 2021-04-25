@@ -1,7 +1,4 @@
----
-title: Introduction
-slug: /
----
+# Introduction
 
 Project is a faster way to building a Node.js RESTful API in TypeScript.
 

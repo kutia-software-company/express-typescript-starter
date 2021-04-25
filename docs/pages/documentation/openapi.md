@@ -1,7 +1,4 @@
----
-title: OpenAPI
-slug: /openapi
----
+# OpenAPI
 
 OpenAPI Specification (formerly known as Swagger Specification) is an API description format for REST APIs. An OpenAPI document allows developers to describe entirely an API.
 

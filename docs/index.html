@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Larapi</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta charset="UTF-8">
+
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify/themes/vue.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify/lib/themes/dark.css" title="dark" disabled>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify-dark-mode@0.6.1/dist/style.css"/>
+    </head>
+
+    <body>
+        <div id="app"></div>
+        <script>
+            window.$docsify = {
+                name: 'Larapi',
+                coverpage: true,
+                loadSidebar: true,
+                repo: 'https://github.com/one2tek/larapi',
+                darkMode: {
+                    light: {
+                        toggleBtnBg: '#42b983'
+                    }
+                },
+                search: {
+                    noData: {
+                        '/': 'No results!'
+                    },
+                    paths: 'auto',
+                    placeholder: {
+                        '/': 'Search...'
+                    },
+                    depth: 6,
+                },
+            }
+        </script>
+        <script src="https://cdn.jsdelivr.net/npm/docsify/lib/docsify.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/docsify-dark-mode@0.6.1/dist/index.js"></script>
+    </body>
+</html>

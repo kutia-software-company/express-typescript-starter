@@ -1,7 +1,4 @@
----
-title: Decorators
-slug: /decorators
----
+# Decorators
 
 ## Custom parameter decorators
 

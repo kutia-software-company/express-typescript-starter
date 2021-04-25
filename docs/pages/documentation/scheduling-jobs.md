@@ -1,7 +1,4 @@
----
-title: Scheduling Jobs
-slug: /scheduling-jobs
----
+# Scheduling Jobs
 
 You can schedule jobs easy with [cron-decorators](https://github.com/mrbandler/cron-decorators).
 

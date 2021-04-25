@@ -1,7 +1,4 @@
----
-title: Controllers
-slug: /controllers
----
+# Controllers
 
 Controllers are the front door of your application. They intercept all incoming requests and return the responses to the client.
 

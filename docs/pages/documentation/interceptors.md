@@ -1,7 +1,4 @@
----
-title: Interceptors
-slug: /interceptors
----
+# Interceptors
 
 Interceptors are used to change or replace the data returned to the client.
 You can create your own interceptor class or function and use to all or specific controller or controller action.

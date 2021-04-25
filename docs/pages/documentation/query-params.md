@@ -1,7 +1,4 @@
----
-title: Query params
-slug: /query-params
----
+# Query params
 
 By default, we support these param names:
 

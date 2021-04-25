@@ -1,7 +1,4 @@
----
-title: Quick Start
-slug: /quick-start
----
+# Quick Start
 
 ### Installation
 

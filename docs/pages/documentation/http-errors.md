@@ -1,7 +1,4 @@
----
-title: HTTP Errors
-slug: /http-errors
----
+# HTTP Errors
 
 If you want to return errors with specific error codes, there is an easy way:
 
