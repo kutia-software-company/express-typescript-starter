@@ -43,6 +43,7 @@
     "typedi": "^0.10.0",
     "typeorm": "^0.2.32",
     "typeorm-seeding": "^1.6.1",
+    "typeorm-simple-query-parser": "^1.0.5",
     "typeorm-typedi-extensions": "^0.4.1",
     "yargs": "^16.2.0"
   },

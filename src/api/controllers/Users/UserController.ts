@@ -17,7 +17,7 @@ import { AuthCheck } from '@base/infrastructure/middlewares/Auth/AuthCheck';
 import { ControllerBase } from '@base/abstracts/ControllerBase';
 import { UserUpdateRequest } from '@api/requests/Users/UserUpdateRequest';
 import { OpenAPI } from 'routing-controllers-openapi';
-import { RequestQueryParser } from '@base/api/transformers/Application/RequestQueryParser';
+import { RequestQueryParser } from 'typeorm-simple-query-parser';
 
 @Service()
 @OpenAPI({
