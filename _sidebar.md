@@ -13,3 +13,4 @@
   - [Scheduling Jobs](pages/documentation/scheduling-jobs.md)
   - [OpenAPI](pages/documentation/openapi.md)
   - [Query params](pages/documentation/query-params.md)
+  - [Socket](pages/documentation/socket.md)
