@@ -24,6 +24,7 @@ Start use now and just focus on your business and not spending hours in project 
 - **API Documentation** thanks to [swagger](http://swagger.io/) and [routing-controllers-openapi](https://github.com/epiphone/routing-controllers-openapi).
 - **GraphQL** thanks to [TypeGraphQL](https://19majkel94.github.io/type-graphql/) we have a some cool decorators to simplify the usage of GraphQL.
 - **Queue Jobs** thanks to [BullMQ](https://github.com/taskforcesh/bullmq).
+- **Query Parser** thanks to [Typeorm Query Parser](https://github.com/gentritabazi01/typeorm-simple-query-parser).
 
 ### Documentation
 
