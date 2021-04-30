@@ -2,8 +2,9 @@ import { QueueJobBase } from '@base/abstracts/QueueJobBase';
 import { Job } from 'bullmq';
 
 export class SendWelcomeMail extends QueueJobBase {
-  readonly jobName = 'SendWelcomeMail';
-
+  /**
+   * Create a new job instance.
+   */
   public constructor(data: any) {
     super(data);
   }

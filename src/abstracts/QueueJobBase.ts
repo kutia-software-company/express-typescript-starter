@@ -2,7 +2,7 @@ import { Job, Queue, Worker, Processor } from 'bullmq';
 
 export abstract class QueueJobBase {
   private queue: Queue;
-  abstract readonly jobName: string = QueueJobBase.name;
+  private readonly jobName: string = (<any>this).constructor.name;
   private data: any;
 
   abstract handle(job: any): Promise<Processor<any, any, string>> | any;
