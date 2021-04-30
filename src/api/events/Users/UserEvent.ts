@@ -5,7 +5,7 @@ import { SendWelcomeMail } from '@api/queue-jobs/Users/SendWelcomeMail';
 export class UserEvent {
   @On('onUserRegister')
   public onUserRegister(user: any) {
-    new SendWelcomeMail(user).process();
+    new SendWelcomeMail(user).dispatch();
   }
 
   @On('onUserCreate')

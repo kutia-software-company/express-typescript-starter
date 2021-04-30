@@ -20,6 +20,10 @@ export abstract class QueueJobBase {
     worker.on('failed', this.onFailed);
   }
 
+  public dispatch() {
+    this.process();
+  }
+
   public onCompleted(job: any): any {
     //
   }
