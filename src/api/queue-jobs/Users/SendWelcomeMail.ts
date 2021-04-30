@@ -15,6 +15,7 @@ export class SendWelcomeMail extends QueueJobBase {
   public async handle(job: Job) {
     const user = job.data;
 
+    console.log('Recieved job', job.name);
     console.log(user);
   }
 }
