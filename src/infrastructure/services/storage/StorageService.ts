@@ -10,7 +10,7 @@ export class StorageService {
     this.setDisk(fileSystemsConfig.defaultDisk);
   }
 
-  public setDisk(disk: any) {
+  public setDisk(disk: string) {
     switch (disk) {
       case 'local':
         this.disk = new LocalDisk();
