@@ -3,10 +3,9 @@ import { define } from 'typeorm-seeding';
 import { User } from '@api/models/Users/User';
 
 define(User, (faker: typeof Faker) => {
-  const gender = faker.random.number(1);
-  const firstName = faker.name.firstName(gender);
-  const lastName = faker.name.lastName(gender);
-  const email = faker.internet.email(firstName, lastName);
+  const firstName = faker.name.firstName();
+  const lastName = faker.name.lastName();
+  const email = faker.internet.email(firstName, lastName).toLowerCase();
 
   const user = new User();
   user.first_name = firstName;
