@@ -1,4 +1,4 @@
-import { QueueJobBase } from '@base/abstracts/QueueJobBase';
+import { QueueJobBase } from '@base/infrastructure/abstracts/QueueJobBase';
 import { Job } from 'bullmq';
 
 export class SendWelcomeMail extends QueueJobBase {

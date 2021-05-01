@@ -2,7 +2,7 @@ import { JsonController, Body, Post } from 'routing-controllers';
 import { Service } from 'typedi';
 import { LoginRequest } from '@api/requests/Auth/LoginRequest';
 import { LoginService } from '@api/services/Auth/LoginService';
-import { ControllerBase } from '@base/abstracts/ControllerBase';
+import { ControllerBase } from '@base/infrastructure/abstracts/ControllerBase';
 import { OpenAPI } from 'routing-controllers-openapi';
 
 @Service()

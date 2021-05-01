@@ -1,6 +1,6 @@
 import { Role } from '@api/models/Users/Role';
 import { EntityRepository } from 'typeorm';
-import { RepositoryBase } from '@base/abstracts/RepositoryBase';
+import { RepositoryBase } from '@base/infrastructure/abstracts/RepositoryBase';
 
 @EntityRepository(Role)
 export class RoleRepository extends RepositoryBase<Role> {
