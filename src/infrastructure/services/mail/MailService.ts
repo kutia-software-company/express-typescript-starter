@@ -8,11 +8,20 @@ export class MailService implements MailInterface {
   private provider: any;
 
   public constructor() {
-    switch (mailConfig.provider) {
-      default:
+    this.setProvider(mailConfig.provider);
+  }
+
+  public setProvider(provider: string) {
+    switch (provider) {
+      case 'smtp':
         this.provider = new SmtpProvider();
         break;
+
+      default:
+        break;
     }
+
+    return this;
   }
 
   public from(value: string): this {
