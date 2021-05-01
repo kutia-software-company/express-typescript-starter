@@ -7,11 +7,20 @@ export class StorageService {
   private disk: any;
 
   public constructor() {
-    switch (fileSystemsConfig.defaultDisk) {
-      default:
+    this.setDisk(fileSystemsConfig.defaultDisk)
+  }
+
+  public setDisk(disk: any) {
+    switch (disk) {
+      case 'local':
         this.disk = new LocalDisk();
         break;
+
+      default:
+        break;
     }
+
+    return this;
   }
 
   public async put(filePath: string, content: string | Buffer, encoding?: string): Promise<void> {
