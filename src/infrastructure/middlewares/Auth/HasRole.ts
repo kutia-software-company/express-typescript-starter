@@ -1,6 +1,7 @@
 export function HasRole(role: string | string[]): any {
   return function (request: any, response: any, next: any) {
     const loggedUser = request.loggedUser;
+    let haveAccess = true;
 
     if (!loggedUser) {
       return response.status(403).send({ status: 401, message: 'Unauthorized!' });
@@ -8,12 +9,16 @@ export function HasRole(role: string | string[]): any {
 
     if (typeof role == 'string') {
       if (loggedUser.role != role) {
-        return response.status(403).send({ status: 403, message: 'User not have the right permissions!' });
+        haveAccess = false;
       }
     } else {
       if (!role.includes(loggedUser.role)) {
-        return response.status(403).send({ status: 403, message: 'User not have the right permissions!' });
+        haveAccess = false;
       }
+    }
+
+    if (!haveAccess) {
+      return response.status(403).send({ status: 403, message: 'User not have the right permissions!' });
     }
 
     return next();
