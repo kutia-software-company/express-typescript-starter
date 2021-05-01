@@ -7,15 +7,17 @@ export class AuthService {
   private provider: any;
 
   public constructor() {
-    switch (authConfig.defaultProvider) {
-      default:
-        this.provider = new JWTProvider();
-        break;
-    }
+    this.setProvider(authConfig.defaultProvider);
   }
 
   public setProvider(provider: string): this {
-    this.provider = provider;
+    switch (provider) {
+      case 'jwt':
+        this.provider = new JWTProvider();
+
+      default:
+        break;
+    }
 
     return this;
   }
