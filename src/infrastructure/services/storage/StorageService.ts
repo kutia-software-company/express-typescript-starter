@@ -7,7 +7,7 @@ export class StorageService {
   private disk: any;
 
   public constructor() {
-    this.setDisk(fileSystemsConfig.defaultDisk)
+    this.setDisk(fileSystemsConfig.defaultDisk);
   }
 
   public setDisk(disk: any) {
@@ -24,7 +24,7 @@ export class StorageService {
   }
 
   public async put(filePath: string, content: string | Buffer, encoding?: string): Promise<void> {
-    return await this.disk.put(filePath, content);
+    return await this.disk.put(filePath, content, encoding);
   }
 
   public createDirectory(dir: string): void {
