@@ -1,7 +1,7 @@
 import { env } from '@base/utils/env';
 
 export const authConfig = {
-  defaultProvider: env('AUTH_DEFAULT_DISK', 'local'),
+  defaultProvider: env('AUTH_DEFAULT_PROVIDER', 'jwt'),
 
   providers: {
     jwt: {
