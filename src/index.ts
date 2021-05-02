@@ -2,7 +2,7 @@ import 'reflect-metadata';
 import { fixModuleAlias } from './fix-module-alias';
 fixModuleAlias();
 import { appConfig } from '@base/config/app';
-import { eventDispatcher } from '@base/utils/eventDispatcher';
+import { loadEventDispatcher } from '@base/utils/load-event-dispatcher';
 import {
   useContainer as routingControllersUseContainer,
   useExpressServer,
@@ -61,7 +61,7 @@ export class App {
   }
 
   private registerEvents() {
-    return eventDispatcher();
+    return loadEventDispatcher();
   }
 
   private registerCronJobs() {
