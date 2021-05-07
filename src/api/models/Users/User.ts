@@ -1,8 +1,8 @@
 import { BeforeInsert, BeforeUpdate, Column, Entity, JoinColumn, OneToOne, PrimaryGeneratedColumn } from 'typeorm';
 import { EntityBase } from '@base/infrastructure/abstracts/EntityBase';
 import { Exclude, Expose } from 'class-transformer';
-import bcrypt from 'bcrypt';
 import { Role } from './Role';
+import { HashService } from '@base/infrastructure/services/hash/HashService';
 
 @Entity({ name: 'users' })
 export class User extends EntityBase {
@@ -37,7 +37,7 @@ export class User extends EntityBase {
   @BeforeInsert()
   @BeforeUpdate()
   async setPassword() {
-    this.password = await bcrypt.hash(this.password, 10);
+    this.password = await (new HashService).make(this.password);
   }
 
   @BeforeInsert()
