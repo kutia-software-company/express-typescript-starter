@@ -39,7 +39,7 @@ export class UserController extends ControllerBase {
     return await this.userService.getAll(resourceOptions);
   }
 
-  @Get('/:id')
+  @Get('/:id([0-9]+)')
   public async getOne(@Param('id') id: number, @QueryParams() parseResourceOptions: RequestQueryParser) {
     const resourceOptions = parseResourceOptions.getAll();
 
