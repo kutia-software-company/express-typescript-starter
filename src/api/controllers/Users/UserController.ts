@@ -19,7 +19,7 @@ import { UserUpdateRequest } from '@api/requests/Users/UserUpdateRequest';
 import { OpenAPI } from 'routing-controllers-openapi';
 import { RequestQueryParser } from 'typeorm-simple-query-parser';
 import { LoggedUser } from '@base/decorators/LoggedUser';
-import { LoggedUserInterface } from '@base/api/interfaces/users/LoggedUserInterface';
+import { LoggedUserInterface } from '@api/interfaces/users/LoggedUserInterface';
 
 @Service()
 @OpenAPI({
