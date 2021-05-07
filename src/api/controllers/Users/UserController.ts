@@ -18,6 +18,8 @@ import { ControllerBase } from '@base/infrastructure/abstracts/ControllerBase';
 import { UserUpdateRequest } from '@api/requests/Users/UserUpdateRequest';
 import { OpenAPI } from 'routing-controllers-openapi';
 import { RequestQueryParser } from 'typeorm-simple-query-parser';
+import { LoggedUser } from '@base/decorators/LoggedUser';
+import { LoggedUserInterface } from '@api/interfaces/users/LoggedUserInterface';
 
 @Service()
 @OpenAPI({
@@ -37,11 +39,21 @@ export class UserController extends ControllerBase {
     return await this.userService.getAll(resourceOptions);
   }
 
-  @Get('/:id')
+  @Get('/:id([0-9]+)')
   public async getOne(@Param('id') id: number, @QueryParams() parseResourceOptions: RequestQueryParser) {
     const resourceOptions = parseResourceOptions.getAll();
 
     return await this.userService.findOneById(id, resourceOptions);
+  }
+
+  @Get('/me')
+  public async getMe(
+    @QueryParams() parseResourceOptions: RequestQueryParser,
+    @LoggedUser() loggedUser: LoggedUserInterface,
+  ) {
+    const resourceOptions = parseResourceOptions.getAll();
+
+    return await this.userService.findOneById(loggedUser.userId, resourceOptions);
   }
 
   @Post()
