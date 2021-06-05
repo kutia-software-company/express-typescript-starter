@@ -78,8 +78,9 @@
     "seed:config": "ts-node -r ./fix-module-alias.js ./node_modules/typeorm-seeding/dist/cli.js config",
     "db:seed": "ts-node -r ./fix-module-alias.js ./node_modules/typeorm-seeding/dist/cli.js seed",
     "db:seed:production": "NODE_ENV=production ts-node -r ./fix-module-alias.js ./node_modules/typeorm-seeding/dist/cli.js seed",
-    "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
-    "lint": "tslint -p tsconfig.json",
+    "code:format": "prettier --write \"src/**/*.{ts,tsx,js,html}\"",
+    "code:check": "prettier --check \"src/**/*.{ts,tsx,js,html}\"",
+    "code:format:specific-file": "prettier --write ",
     "test": "jest"
   },
   "repository": {
