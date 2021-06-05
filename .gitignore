@@ -3,3 +3,5 @@ dist
 .env
 temp
 /src/schema.gql
+.vscode
+.idea
