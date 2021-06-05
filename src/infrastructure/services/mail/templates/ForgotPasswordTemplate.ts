@@ -15,7 +15,7 @@ export class ForgotPasswordTemplate extends MailTemplateBase {
     this.token = token;
   }
 
-  getTemplate(): Mailgen.Content {
+  public getTemplate(): Mailgen.Content {
     return {
       body: {
         name: this.username,
