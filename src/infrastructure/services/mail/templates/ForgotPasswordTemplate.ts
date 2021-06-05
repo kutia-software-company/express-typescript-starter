@@ -9,7 +9,7 @@ export class ForgotPasswordTemplate extends MailTemplateBase {
   private username: string;
   private token: string;
 
-  constructor(username: string, email: string, token: string) {
+  constructor(username: string, token: string) {
     super();
     this.username = username;
     this.token = token;
