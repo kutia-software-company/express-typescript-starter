@@ -8,7 +8,11 @@ import { HashService } from '@base/infrastructure/services/hash/HashService';
 
 @Service()
 export class LoginService {
-  constructor(@InjectRepository() private userRepository: UserRepository, private authService: AuthService, private hashService: HashService) {
+  constructor(
+    @InjectRepository() private userRepository: UserRepository,
+    private authService: AuthService,
+    private hashService: HashService,
+  ) {
     //
   }
 

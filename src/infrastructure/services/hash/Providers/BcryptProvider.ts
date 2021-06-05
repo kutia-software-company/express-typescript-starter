@@ -6,7 +6,6 @@ export class BcryptProvider {
   private defaultRounds = hashingConfig.disks.bcrypt.defaultRounds;
 
   public async make(data: any, saltOrRounds: string | number = this.defaultRounds) {
-    console.log(saltOrRounds)
     return await this.bcrypt.hash(data, saltOrRounds);
   }
 
