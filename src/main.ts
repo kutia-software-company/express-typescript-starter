@@ -1,6 +1,6 @@
 import 'reflect-metadata';
-import { fixModuleAlias } from './fix-module-alias';
-fixModuleAlias();
+import { fixModuleAlias } from './utils/fix-module-alias';
+fixModuleAlias(__dirname);
 import { appConfig } from '@base/config/app';
 import { loadEventDispatcher } from '@base/utils/load-event-dispatcher';
 import {
