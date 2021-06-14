@@ -79,7 +79,8 @@
     "code:format": "prettier --write \"src/**/*.{ts,css,js,html}\"",
     "code:check": "prettier --check \"src/**/*.{ts,css,js,html}\"",
     "code:format:specific-file": "prettier --write ",
-    "test": "jest"
+    "test": "jest",
+    "cli": "ts-node -r ./fix-module-alias.js src/utils/cli.ts"
   },
   "repository": {
     "type": "git",
@@ -89,9 +90,6 @@
     "expressjs",
     "express-typescript"
   ],
-  "bin": {
-    "cli": "cli/index.ts"
-  },
   "author": "Gentrit Abazi",
   "license": "MIT",
   "bugs": {

@@ -15,6 +15,7 @@ Start use now and just focus on your business and not spending hours in project 
 - **Custom Validators** to validate your request even better and stricter ([custom-validation-classes](https://github.com/pleerock/class-validator#custom-validation-classes)).
 - **Basic Security Features** thanks to [Helmet](https://helmetjs.github.io/).
 - **Authentication and Authorization** thanks to [jsonwebtoken](https://github.com/auth0/node-jsonwebtoken).
+- **CLI Commands** thanks to [yargs](https://github.com/yargs/yargs).
 - **Easy event dispatching** thanks to [event-dispatch](https://github.com/pleerock/event-dispatch).
 - **Fast Database Building** with simple migration from [TypeORM](https://github.com/typeorm/typeorm).
 - **Easy Data Seeding** with our own factories.
