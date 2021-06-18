@@ -8,5 +8,4 @@ yargs
   .demandCommand(1, 'Please provide a valid command.')
   .strict()
   .help('help')
-  .alias('help', 'h')
-  .argv;
+  .alias('help', 'h').argv;
