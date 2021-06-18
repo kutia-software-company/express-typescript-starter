@@ -1,0 +1,19 @@
+name: CI
+on: [push, pull_request]
+jobs:
+  checks:
+    name: Linters
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - uses: actions/setup-node@v1
+      - run: npm ci --ignore-scripts
+      - run: npm run code:check
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - uses: actions/setup-node@v1
+      - run: npm ci --ignore-scripts
+      - run: npm run build
