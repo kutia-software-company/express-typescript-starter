@@ -17,7 +17,10 @@ export class LoginService {
   }
 
   public async login(data: LoginRequest) {
-    let user = await this.userRepository.findOne({ where: { email: data.email }, relations: ['role'] });
+    let user = await this.userRepository.findOne({
+      where: { email: data.email },
+      relations: ['role'],
+    });
 
     if (!user) {
       throw new InvalidCredentials();
@@ -28,7 +31,12 @@ export class LoginService {
     }
 
     return this.authService.sign(
-      { userId: user.id, email: user.email, role_id: user.role_id, role: user.role.name },
+      {
+        userId: user.id,
+        email: user.email,
+        role_id: user.role_id,
+        role: user.role.name,
+      },
       { user: { id: user.id, email: user.email, role: user.role.name } },
     );
   }

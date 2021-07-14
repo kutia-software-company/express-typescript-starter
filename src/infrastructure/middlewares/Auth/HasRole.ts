@@ -18,7 +18,10 @@ export function HasRole(role: string | string[]): any {
     }
 
     if (!haveAccess) {
-      return response.status(403).send({ status: 403, message: 'User does not have the right permissions!' });
+      return response.status(403).send({
+        status: 403,
+        message: 'User does not have the right permissions!',
+      });
     }
 
     return next();

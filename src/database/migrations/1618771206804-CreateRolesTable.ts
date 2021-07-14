@@ -5,7 +5,13 @@ export class CreateRolesTable1618771206804 implements MigrationInterface {
     const table = new Table({
       name: 'roles',
       columns: [
-        { name: 'id', type: 'bigint', isPrimary: true, isGenerated: true, generationStrategy: 'increment' },
+        {
+          name: 'id',
+          type: 'bigint',
+          isPrimary: true,
+          isGenerated: true,
+          generationStrategy: 'increment',
+        },
         { name: 'name', type: 'varchar', length: '50', isUnique: true },
       ],
     });

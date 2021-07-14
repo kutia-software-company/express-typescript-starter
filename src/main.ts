@@ -95,7 +95,9 @@ export class App {
       console.log(`🚀 Server started at http://localhost:${this.port}\n🚨️ Environment: ${process.env.NODE_ENV}`),
     );
 
-    useSocketServer(io, { controllers: [__dirname + appConfig.controllersDir] });
+    useSocketServer(io, {
+      controllers: [__dirname + appConfig.controllersDir],
+    });
   }
 
   private registerRoutingControllers() {
@@ -112,7 +114,11 @@ export class App {
 
   private registerDefaultHomePage() {
     this.app.get('/', (req, res) => {
-      res.json({ title: appConfig.name, mode: appConfig.node, date: new Date() });
+      res.json({
+        title: appConfig.name,
+        mode: appConfig.node,
+        date: new Date(),
+      });
     });
   }
 
