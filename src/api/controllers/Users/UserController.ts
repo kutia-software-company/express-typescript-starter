@@ -1,15 +1,4 @@
-import {
-  Param,
-  Get,
-  JsonController,
-  Post,
-  Body,
-  Put,
-  Delete,
-  HttpCode,
-  UseBefore,
-  QueryParams,
-} from 'routing-controllers';
+import { Param, Get, JsonController, Post, Body, Put, Delete, HttpCode, UseBefore, QueryParams } from 'routing-controllers';
 import { UserService } from '@api/services/Users/UserService';
 import { Service } from 'typedi';
 import { UserCreateRequest } from '@api/requests/Users/UserCreateRequest';
@@ -47,10 +36,7 @@ export class UserController extends ControllerBase {
   }
 
   @Get('/me')
-  public async getMe(
-    @QueryParams() parseResourceOptions: RequestQueryParser,
-    @LoggedUser() loggedUser: LoggedUserInterface,
-  ) {
+  public async getMe(@QueryParams() parseResourceOptions: RequestQueryParser, @LoggedUser() loggedUser: LoggedUserInterface) {
     const resourceOptions = parseResourceOptions.getAll();
 
     return await this.userService.findOneById(loggedUser.userId, resourceOptions);

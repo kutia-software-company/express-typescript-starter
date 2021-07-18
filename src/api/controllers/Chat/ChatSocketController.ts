@@ -1,12 +1,4 @@
-import {
-  OnConnect,
-  SocketController,
-  ConnectedSocket,
-  SocketIO,
-  OnDisconnect,
-  MessageBody,
-  OnMessage,
-} from 'socket-controllers';
+import { OnConnect, SocketController, ConnectedSocket, SocketIO, OnDisconnect, MessageBody, OnMessage } from 'socket-controllers';
 import { Service } from 'typedi';
 
 @Service()

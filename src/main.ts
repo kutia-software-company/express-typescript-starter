@@ -3,11 +3,7 @@ import { fixModuleAlias } from './utils/fix-module-alias';
 fixModuleAlias(__dirname);
 import { appConfig } from '@base/config/app';
 import { loadEventDispatcher } from '@base/utils/load-event-dispatcher';
-import {
-  useContainer as routingControllersUseContainer,
-  useExpressServer,
-  getMetadataArgsStorage,
-} from 'routing-controllers';
+import { useContainer as routingControllersUseContainer, useExpressServer, getMetadataArgsStorage } from 'routing-controllers';
 import { loadHelmet } from '@base/utils/load-helmet';
 import { Container } from 'typedi';
 import { createConnection, useContainer as typeormOrmUseContainer } from 'typeorm';
@@ -91,9 +87,7 @@ export class App {
       next();
     });
 
-    server.listen(this.port, () =>
-      console.log(`🚀 Server started at http://localhost:${this.port}\n🚨️ Environment: ${process.env.NODE_ENV}`),
-    );
+    server.listen(this.port, () => console.log(`🚀 Server started at http://localhost:${this.port}\n🚨️ Environment: ${process.env.NODE_ENV}`));
 
     useSocketServer(io, {
       controllers: [__dirname + appConfig.controllersDir],

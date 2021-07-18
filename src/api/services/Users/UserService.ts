@@ -6,10 +6,7 @@ import { InjectRepository } from 'typeorm-typedi-extensions';
 
 @Service()
 export class UserService {
-  constructor(
-    @InjectRepository() private userRepository: UserRepository,
-    @EventDispatcher() private eventDispatcher: EventDispatcherInterface,
-  ) {
+  constructor(@InjectRepository() private userRepository: UserRepository, @EventDispatcher() private eventDispatcher: EventDispatcherInterface) {
     //
   }
 
