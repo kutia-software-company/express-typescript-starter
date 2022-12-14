@@ -19,7 +19,7 @@
     "cron-decorators": "^0.1.5",
     "dotenv": "^8.6.0",
     "event-dispatch": "^0.4.1",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "express-graphql": "^0.12.0",
     "glob": "^7.1.7",
     "graphql": "^15.5.3",
