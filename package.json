@@ -24,7 +24,7 @@
     "glob": "^7.1.7",
     "graphql": "^15.5.3",
     "helmet": "^4.6.0",
-    "jsonwebtoken": "^8.5.1",
+    "jsonwebtoken": "^9.0.0",
     "mailgen": "^2.0.15",
     "module-alias": "^2.2.2",
     "multer": "^1.4.3",
