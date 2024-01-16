@@ -28,6 +28,36 @@ Start use now and just focus on your business and not spending hours in project 
 - **Queue Jobs** thanks to [BullMQ](https://github.com/taskforcesh/bullmq).
 - **Query Parser** thanks to [Typeorm Query Parser](https://github.com/gentritabazi01/typeorm-simple-query-parser).
 
+### Project Structure
+```dist/                       Compiled source files will be placed here
+src/                        Source files
+|-- config/                 The config directory, as the name implies, contains all of your application's configuration files.
+|-- api/
+|   |-- controllers/        REST API Controllers
+|   |-- responses/          Response classes or interfaces to type JSON response bodies
+|   |-- exceptions/         Custom HttpErrors like 404 NotFound
+|   |-- models/             TypeORM Models
+|   |-- repositories/       Repository / DB layer
+|   |-- services/           Service layer
+|   |-- events/             Events
+|   |-- requests/           Request classes with validation rules if the body is not equal with a model
+|   |-- transformers/       Class-transformer allows you to transform plain object to some instance of class and versa
+|   |-- cron-jobs/          Cron Jobs
+|   |-- resolvers/          GraphQL resolvers (query, mutation & field-resolver)
+|   |-- types/              GraphQL types, input-types and scalar types
+|   |-- queue-jobs/         Queue Jobs
+|-- infrastructure/         App Infrastructure
+|   |-- middlewares/        Express Middlewares
+|-- database/
+|   |-- factories/          Factory to generate fake entities
+|   |-- migrations/         Database migration scripts
+|   |-- seeds/              Seeds to create some data in the database
+|-- decorators/             Custom decorators like @EventDispatch
+|-- public/                 Static assets (fonts, css, js, img).
+.env.example               Environment configurations
+```
+
+
 ### Documentation
 
 https://kutia-software-company.github.io/express-typescript-starter
